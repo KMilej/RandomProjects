@@ -1,0 +1,128 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\StackByArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\StackByLinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackbyArray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\StackbyArray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\IStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\IStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{84EA6E95-887B-4CDA-8A6A-893E5C4664A1}|StackByArrayandLlist\\StackByArrayandLlist.vcxproj|solutionrelative:StackByArrayandLlist\\StackByLinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\main.cpp",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\main.cpp",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\main.cpp",
+              "RelativeToolTip": "StackByArrayandLlist\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-01T21:59:07.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StackByLinkedList.cpp",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.cpp",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\StackByLinkedList.cpp",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.cpp",
+              "RelativeToolTip": "StackByArrayandLlist\\StackByLinkedList.cpp",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-01T21:58:46.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StackByLinkedList.h",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.h",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\StackByLinkedList.h",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByLinkedList.h",
+              "RelativeToolTip": "StackByArrayandLlist\\StackByLinkedList.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-01T21:57:52.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StackByArray.h",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByArray.h",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\StackByArray.h",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByArray.h",
+              "RelativeToolTip": "StackByArrayandLlist\\StackByArray.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-01T21:57:20.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IStack.h",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\IStack.h",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\IStack.h",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\IStack.h",
+              "RelativeToolTip": "StackByArrayandLlist\\IStack.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-01T21:57:00.776Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StackByArray.cpp",
+              "DocumentMoniker": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByArray.cpp",
+              "RelativeDocumentMoniker": "StackByArrayandLlist\\StackByArray.cpp",
+              "ToolTip": "U:\\HND level 8 GitRepo\\RandomProjects\\c\u002B\u002B\\StackByArrayandLlist\\StackByArrayandLlist\\StackByArray.cpp",
+              "RelativeToolTip": "StackByArrayandLlist\\StackByArray.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-01T21:58:37.669Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
