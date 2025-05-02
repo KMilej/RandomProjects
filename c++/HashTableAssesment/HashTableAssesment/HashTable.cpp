@@ -1,4 +1,4 @@
-#include "HashTable.h"
+﻿#include "HashTable.h"
 #include <iostream>
 
 // Constructor
@@ -28,6 +28,9 @@ void HashTable::insert(const std::string& key) {
     int startIndex = index;
 
     while (table[index] != "") {
+
+        std::cout << "Error: this place is full, then will be +1 in array \"" << key << "\".\n";
+
         index = (index + 1) % TABLE_SIZE;
 
         // Optional: check for full table
@@ -36,7 +39,7 @@ void HashTable::insert(const std::string& key) {
             return;
         }
     }
-
+    std::cout << "add \"" << key <<  "\" index from hash(modulo) = " << startIndex << ",  to index " << index << "\n";
     table[index] = key;
 }
 

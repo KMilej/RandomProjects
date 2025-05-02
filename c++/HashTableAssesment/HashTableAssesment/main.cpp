@@ -1,52 +1,49 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <string>
 #include "HashTable.h"
 
-// Helper function to insert a dataset and count steps
+//function to insert a dataset and count steps
+
 int insertDataset(HashTable& table, const std::vector<std::string>& dataset) {
-    int steps = 0;
-    for (const std::string& key : dataset) {
-        int localSteps = 1;
-        int index = table.hash(key);
-
-        // Count how many steps are needed for insertion
-        while (table.search(key) == false && table.search("") == false && table.search(key) != true) {
- {
-            index = (index + 1) % 10;
-            localSteps++;
-        }
-
-        table.insert(key);
-        steps += localSteps;
-    }
-    return steps;
-}
-
-// Helper function to search a dataset and count steps
-int searchDataset(HashTable& table, const std::vector<std::string>& dataset) {
-    int steps = 0;
+    int totalSteps = 0;
     for (const std::string& key : dataset) {
         int index = table.hash(key);
         int startIndex = index;
-        int localSteps = 1;
+        int steps = 1;
 
-        while (true) {
-            if (table.search(key)) {
+        while (!table.table[index].empty()) {
+            index = (index + 1) % 10;
+            steps++;
+            if (index == startIndex) {
                 break;
             }
+        }
+        table.insert(key);
+        totalSteps += steps;
+    }
+    return totalSteps;
+}
 
+//  Moved outside insertDataset!
+int searchDataset(HashTable& table, const std::vector<std::string>& dataset) {
+    int totalSteps = 0;
+
+    for (const std::string& key : dataset) {
+        int index = table.hash(key);
+        int startIndex = index;
+        int steps = 1;
+
+        while (!table.search(key) && steps <= 10) {
             index = (index + 1) % 10;
-            localSteps++;
-
-            if (index == startIndex) {
-                break; // looped all the way around
-            }
+            steps++;
+            if (index == startIndex) break;
         }
 
-        steps += localSteps;
+        totalSteps += steps;
     }
-    return steps;
+
+    return totalSteps;
 }
 
 int main() {
@@ -60,7 +57,7 @@ int main() {
         "aaa", "aba", "aca", "ada", "aea"
     };
 
-    std::cout << "===== OPTIMAL DATASET =====\n";
+    std::cout << "===== real life test =====\n";
     table.init();
     int insertSteps1 = insertDataset(table, optimalSet);
     int searchSteps1 = searchDataset(table, optimalSet);
@@ -68,7 +65,7 @@ int main() {
     std::cout << "Total insert steps: " << insertSteps1 << "\n";
     std::cout << "Total search steps: " << searchSteps1 << "\n\n";
 
-    std::cout << "===== WORST-CASE DATASET =====\n";
+    std::cout << "===== test with extrime value close to each order =====\n";
     table.init();
     int insertSteps2 = insertDataset(table, worstCaseSet);
     int searchSteps2 = searchDataset(table, worstCaseSet);
@@ -78,3 +75,26 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+
+//int insertDataset(HashTable& table, const std::vector<std::string>& dataset) {
+//    int steps = 0;
+//    for (const std::string& key : dataset) {
+//        int localSteps = 1;
+//        int index = table.hash(key);
+//
+//        while (table.search(key) == false && localSteps <= 10) {
+//            index = (index + 1) % 10;
+//            localSteps++;
+//        }
+//
+//        table.insert(key);
+//        steps += localSteps;
+//    }
+//    return steps;
+//}

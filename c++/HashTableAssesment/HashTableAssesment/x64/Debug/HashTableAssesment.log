@@ -1,10 +1,2 @@
-﻿  main.cpp
-U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\HashTableAssesment\main.cpp(27,5): error C2601: 'searchDataset': local function definitions are illegal
-      U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\HashTableAssesment\main.cpp(7,78):
-      this line contains a '{' which has not yet been matched
-  
-U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\HashTableAssesment\main.cpp(52,5): error C2601: 'main': local function definitions are illegal
-      U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\HashTableAssesment\main.cpp(7,78):
-      this line contains a '{' which has not yet been matched
-  
-U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\HashTableAssesment\main.cpp(7,78): error C1075: '{': no matching token found
+﻿  HashTable.cpp
+  HashTableAssesment.vcxproj -> U:\HND level 8 GitRepo\RandomProjects\c++\HashTableAssesment\x64\Debug\HashTableAssesment.exe
