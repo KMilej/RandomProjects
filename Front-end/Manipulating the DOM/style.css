@@ -1,0 +1,28 @@
+body {
+    font: 80% arial, helvetica, sans-serif;
+    margin: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+#navigation1 {
+    position: absolute;
+    left: 0;
+    width: 200px;
+}
+
+ #header {
+    background: #ccc;
+}
+
+#navigation2 {
+    position: absolute;
+    right: 0;
+    width: 150px;
+}
+
+#content {
+    margin: 0 150px 0 200px;
+}
