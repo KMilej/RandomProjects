@@ -7,6 +7,7 @@
 
 int insertDataset(HashTable& table, const std::vector<std::string>& dataset) {
     int totalSteps = 0;
+   // int totalStepsbyElement = 0;
     for (const std::string& key : dataset) {
         int index = table.hash(key);
         int startIndex = index;
@@ -20,6 +21,9 @@ int insertDataset(HashTable& table, const std::vector<std::string>& dataset) {
             }
         }
         table.insert(key);
+
+        std::cout << "Insert \"" << key << "\" took " << steps << " step(s).\n"; // <-- TU DODANE
+
         totalSteps += steps;
     }
     return totalSteps;
@@ -50,28 +54,41 @@ int main() {
     HashTable table;
 
     std::vector<std::string> optimalSet = {
-        "cat", "dog", "sun", "pen", "box"
+        "cat", "dog", "sun", "pen", "box",
     };
 
     std::vector<std::string> worstCaseSet = {
         "aaa", "aba", "aca", "ada", "aea"
     };
+    std::vector<std::string> tooManyElementsSet = {
+        "Richard", "Stuart", "Kamil", "Martyna", "Owen", "Ben", "Derek", "Josephine", "Jim", "Fiona", "Mark"
+    };
 
-    std::cout << "===== real life test =====\n";
+    std::cout << "\n===== real life test =====\n\n";
     table.init();
     int insertSteps1 = insertDataset(table, optimalSet);
     int searchSteps1 = searchDataset(table, optimalSet);
     table.printTable();
     std::cout << "Total insert steps: " << insertSteps1 << "\n";
-    std::cout << "Total search steps: " << searchSteps1 << "\n\n";
+    std::cout << "Total search steps: " << searchSteps1 << "\n";
 
-    std::cout << "===== test with extrime value close to each order =====\n";
+
+    std::cout << "\n===== test with extrime value close to each order =====\n\n";
     table.init();
     int insertSteps2 = insertDataset(table, worstCaseSet);
     int searchSteps2 = searchDataset(table, worstCaseSet);
     table.printTable();
     std::cout << "Total insert steps: " << insertSteps2 << "\n";
     std::cout << "Total search steps: " << searchSteps2 << "\n";
+
+
+    std::cout << "\n===== test with more then 11 elements =====\n\n";
+    table.init();
+    int insertSteps3 = insertDataset(table, tooManyElementsSet);
+    int searchSteps3 = searchDataset(table, tooManyElementsSet);
+    table.printTable();
+    std::cout << "Total insert steps: " << insertSteps3 << "\n";
+    std::cout << "Total search steps: " << searchSteps3 << "\n\n";
 
     return 0;
 }
