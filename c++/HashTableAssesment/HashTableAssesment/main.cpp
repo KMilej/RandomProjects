@@ -58,10 +58,10 @@ int main() {
     };
 
     std::vector<std::string> worstCaseSet = {
-        "aaa", "aba", "aca", "ada", "aea"
+        "aaa", "cdf", "cee", "cff", "def"
     };
     std::vector<std::string> tooManyElementsSet = {
-        "Richard", "Stuart", "Kamil", "Martyna", "Owen", "Ben", "Derek", "Josephine", "Jim", "Fiona", "Mark"
+        "Richard", "Stuart", "Kamil", "Martyna", "Owen", "Ben", "Derek", "Josephine", "Jim", "Fiona", "Mark", "Edyta"
     };
 
     std::cout << "\n===== real life test =====\n\n";
