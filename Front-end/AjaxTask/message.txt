@@ -1,0 +1,6 @@
+<div id="newdiv">
+<p>
+YAHOOO!! It worked!<br />
+This content was retrieved from an external file using AJAX!
+</p>
+</div>
