@@ -6,8 +6,8 @@
 
 class HashTable {
 public:
-    static const int TABLE_SIZE = 10;           // Minimum size of 10 buckets
-    std::string table[TABLE_SIZE];              // Array to store strings (max length 10)
+    static const int TABLE_SIZE = 10;           // Minimum size 10 buckets
+    std::string table[TABLE_SIZE];              // Array store strings (max 10 because TABLE_SIZE)
 
 public:
     // Constructor

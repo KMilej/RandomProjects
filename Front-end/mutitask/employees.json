@@ -1,0 +1,22 @@
+{
+    "employees": [
+      {
+        "snum": "3107",
+        "surname": "HAMILTON",
+        "jobtitle": "SALESMAN",
+        "salary": "18534"
+      },
+      {
+        "snum": "2101",
+        "surname": "SMITH",
+        "jobtitle": "CLEANER",
+        "salary": "22322"
+      },
+      {
+        "snum": "1121",
+        "surname": "JONES",
+        "jobtitle": "MANAGER",
+        "salary": "99221"
+      }
+    ]
+  }
