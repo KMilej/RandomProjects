@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+/* General navbar style */
+.navbar {
+  background-color: #232f3e;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Menu list */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow-x: auto;
+}
+
+/* Each menu item */
+.nav-menu li {
+  margin-right: 20px;
+}
+
+/* Links */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 5px 0;
+  display: block;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+.nav-menu .nav-welcome {
+  color: #eb8484;
+}
+
+
+
+
+  .loginscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+/* LOGIN WINDOW */
+.window {
+    background-color:  #e4aeae;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+
+}
+* HEADER */
+.window h2 {
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+/* FORM INPUTS */
+.window input[type="text"],
+.window input[type="password"],
+.window input[type="email"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.window input[type="text"]:focus,
+.window input[type="password"]:focus,
+.window input[type="email"]:focus
+{
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* BUTTON */
+.window button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.window button[type="submit"]:hover {
+    background-color: #2563eb;
+  }
+
+/* Password view  */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+ 
+}
+.password-wrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-right: 2.5rem; /* place for icon?*/
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* 👁️ Icon */
+  .toggle-password {
+    position: absolute;
+    right: 0.75rem; /* move to right  */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;          /* pointer just when lick on this place */
+    user-select: none;
+    line-height: 1;
+    z-index: 10;
+  }
+
+
