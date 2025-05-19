@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $pageTitle; ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript/JavaScript.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="min-h-screen font-sans text-gray-800">
+    <?php
+    session_start();
+    require_once 'config.php';
+    ?>
+
+    <!-- NAVBAR -->
+    <div class="bg-[#232f3e] p-4">
+        <ul class="flex overflow-x-auto space-x-5 text-sm">
+
+            <?php if (isset($_SESSION["user_id"])): ?>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">Home Page</a></li>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/topicinformation.php" class="text-white hover:underline">Topic Information</a></li>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">FAQ</a></li>
+                <li class="text-pink-400">Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong></li>
+                <li><a href="logout.php" class="text-white hover:underline">Logout</a></li>
+                
+            <?php else: ?>
+                <li><a href="<?php echo BASE_URL; ?>main.php" class="text-white hover:underline">Please Log in to access</a></li>
+                <li><a href="register.php" class="text-white hover:underline">Register</a></li>
+            <?php endif; ?>    
+        </ul>
+    </div>
+
+    
+    <div class="page-background">
+        <div class="content three-column-layout">
+      
+          <!-- LEWA KOLUMNA: MENU -->
+          <aside class="side-menu">
+            <ul>
+                <li><a href="#">What's new?</a></li>
+                <li><a href="#">About Game</a></li>
+                <li><a href="#">Heroes 3 HD Edition</a></li>
+                <li><a href="#">Heroes Chronicles</a></li>
+                <li><a href="#">Horn of the Abyss</a></li>
+                <li><a href="#">Fraktion</a></li>
+                <li class="up-dropdown">
+                    <button class="dropdown-toggle">Troops</button>
+                    <ul class="dropdown">
+                      <li><button data-option="tier1">Tier 1 Units</button></li>
+                      <li><button data-option="tier2">Tier 2 Units</button></li>
+                      <li><button data-option="upgraded">Upgraded Units</button></li>
+                    </ul>
+                </li>
+                <li><a href="#">Heroes</a></li>
+              </ul>
+          </aside>
+      
+          <!-- ŚRODEK: TREŚĆ GŁÓWNA -->
+          <main class="main-content">
+            <h1>Witaj na stronie!</h1>
+            <p>Tu możesz tworzyć dowolne elementy HTML.</p>
+          </main>
+      
+          <!-- PRAWA KOLUMNA: RANDOM -->
+          <aside class="right-sidebar">
+            <h2>Losowe info</h2>
+            <ul>
+              <li>🧙 Cytat: „Magic is power”</li>
+              <li>🗡️ Nowa jednostka: Behemot</li>
+              <li>🏰 Frakcja tygodnia: Bastion</li>
+            </ul>
+          </aside>
+      
+        </div>
+      </div>
+
+</body>
+</html>

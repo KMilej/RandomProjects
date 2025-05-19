@@ -1,0 +1,245 @@
+
+
+.image-overlay-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* pełna wysokość okna */
+    overflow: hidden;
+}
+
+.main-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* dopasuj obraz do kontenera */
+    z-index: 1;
+}
+
+.overlay-absolute {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    color: white;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Lewa część */
+.left-section {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+}
+
+/* Prawa kolumna */
+.right-section {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-box,
+.bottom-box {
+    background-color: rgba(20, 20, 20, 0.75);
+    padding: 15px;
+}
+.game-title-link {
+    color: inherit; /* zachowuje kolor tekstu */
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.game-title-link:hover {
+    color: #0077cc; /* kolor po najechaniu */
+    text-decoration: underline;
+}
+.game-title {
+    font-size: 2.2em;           /* większy rozmiar */
+    font-weight: bold;          /* pogrubiony tekst */
+    color: #d4d1d191;             /* ciemny kolor tekstu */
+    margin-bottom: 10px;        /* odstęp pod nagłówkiem */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* delikatny cień */
+}
+.dragon-img {
+    width: 70%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+.dragon-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* odstęp między smokiem a tekstem */
+    margin-top: 10px;
+}
+
+.dragon-img1 {
+    width: 30%;
+    height: auto;
+    border-radius: 4px;
+}
+.fancy-header {
+    font-size: 24px;
+    color: #d4af37; /* gold-like */
+    text-shadow: 1px 1px 2px #333;
+    font-family: 'Georgia', serif;
+    margin-bottom: 10px;
+}
+
+.dragon-link {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dragon-link:hover {
+    text-decoration: underline;
+    color: #ff4500;
+}
+
+.page-background {
+    background-image: url('../img/backtopic.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* USUWAMY vertical centering żeby był przyklejony do góry */
+    align-items: flex-start;
+    padding-top: 0; /* brak odstępu od góry */
+    padding-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  .content {
+    background-color: rgba(187, 185, 185, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 75%; /* <- Twoje życzenie */
+    margin-top: 0; /* brak odstępu od navbaru */
+  }
+  
+/* TOPIC INFOTMATION LAYOUT */
+  /* Layout 3 kolumny */
+.three-column-layout {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Lewa kolumna: menu */
+  .side-menu {
+    width: 25%;
+    background-color: black;
+    padding: 10px;
+  }
+  
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .side-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .side-menu a {
+    display: block;
+    background-image: url('../img/menu-bg.png'); /* <- Twój obrazek tła */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #5a4c2e;
+    box-shadow: 2px 2px 5px #000;
+    transition: transform 0.2s ease;
+  }
+  
+  .side-menu a:hover {
+    transform: scale(1.03);
+    text-decoration: underline;
+  }
+  
+  /* Środek */
+  .main-content {
+    flex: 1;
+    background-color: rgba(247, 190, 190, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  /* Prawa kolumna */
+  .right-sidebar {
+    width: 20%;
+    background-color: #111;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  /* DROPDOWN TROOPS */
+
+.up-dropdown .dropdown {
+    display: none;
+    margin-top: 5px;
+    padding-left: 0;
+}
+/* Pokaż, jeśli aktywny */
+.up-dropdown.open .dropdown {
+    display: block;
+  }
+
+  /* Dropdown ukryty domyślnie */
+.has-dropdown .dropdown {
+    display: none;
+    margin-top: 5px;
+    padding-left: 0;
+  }
+  
+  /* Pokaż, jeśli aktywny */
+  .has-dropdown.open .dropdown {
+    display: block;
+  }
+  
+  .dropdown li {
+    margin-bottom: 5px;
+  }
+  
+  .side-menu button,
+  .side-menu .dropdown-toggle {
+    width: 100%;
+    background-image: url('../img/menu-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    text-decoration: none;
+    border: 2px solid #5a4c2e;
+    box-shadow: 2px 2px 5px #000;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  
+  
+  
+

@@ -1,0 +1,33 @@
+{ 
+  "StrikeDragons": [ 
+
+    { 
+
+      "name": "Night Fury", 
+      "description": "The Night Fury has cat-like eyes, ear-like appendages, nubs and tendrils protruding from its head, fins behind the hind legs, and tail fins.", 
+      "color": "It is jet black with slightly lighter spots.", 
+      "size": "Medium: 28 feet 8 inches (8.74 meters) long, 5 feet 9 inches (1.75 meters) tall." 
+
+    }, 
+
+    { 
+
+      "name": "Deathgrippers", 
+      "description": "Deathgrippers have protruding retractable tusks, plate armour along the back, a venomous stinger sheathed at the tip of a telescopic tail, and jagged pincers.", 
+      "color": "They can be red and black, yellow and black, purple and black, blue and purple, blue, or green.", 
+      "size": "Medium: 28 feet (8.5344 meters) long." 
+
+    }, 
+
+    { 
+
+      "name": "Woolly Howl", 
+      "description": "The Woolly Howl has fur-like scales, tail fins, a purple mouth and eyes, and a segmented underbelly.", 
+      "color": "It is dark brown with a pale belly.", 
+      "size": "Medium." 
+
+    } 
+
+  ] 
+
+} 

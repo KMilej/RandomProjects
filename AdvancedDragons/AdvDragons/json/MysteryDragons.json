@@ -1,0 +1,23 @@
+{
+    "MysteryDragons": [
+      {
+        "name": "Death Song",
+        "description": "The Death Song has colourful wings, fins on its head, long spines along its back, long horns, and barbels.",
+        "color": "It is covered in striking and bright colours of blue, yellow, and orange.",
+        "size": "Large: 95 feet (28.95 meters) long."
+      },
+      {
+        "name": "Hideous Zippleback",
+        "description": "The Hideous Zippleback has two heads, horns, a split tail, and lobs along its necks, back, and tail.",
+        "color": "It comes in different colours, mainly green, blue, or gold with spots and a cream underbelly.",
+        "size": "Large: 70 feet 10 inches (21.59 meters) long, 8 feet 1 inch (2.46 meters) tall."
+      },
+      {
+        "name": "Smothering Smokebreath",
+        "description": "The Smothering Smokebreath has yellow eyes, a skull-like head, a smoke-like tail, spines along its back, and a nasal horn flanked by two smaller ones.",
+        "color": "It is dark and light grey.",
+        "size": "Small: 6 feet (1.83 meters) long, 2 feet 5 inches (0.74 meters) tall."
+      }
+    ]
+  }
+  
