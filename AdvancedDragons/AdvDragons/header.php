@@ -22,7 +22,7 @@
             <?php if (isset($_SESSION["user_id"])): ?>
                 <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">Home Page</a></li>
                 <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/topicinformation.php" class="text-white hover:underline">Topic Information</a></li>
-                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">FAQ</a></li>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/faq.php" class="text-white hover:underline">FAQ</a></li>
                 <li class="text-pink-400">Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong></li>
                 <li><a href="logout.php" class="text-white hover:underline">Logout</a></li>
                 

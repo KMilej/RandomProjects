@@ -3,9 +3,12 @@
 .image-overlay-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* pełna wysokość okna */
-    overflow: hidden;
+    min-height: 100vh; /* zamiast stałej wysokości */
+    overflow: visible; /* pozwól na przewijanie */
+    /* height: 100vh;
+    overflow: hidden; */
 }
+
 
 .main-image-bg {
     position: absolute;
@@ -28,6 +31,8 @@
     box-sizing: border-box;
 }
 
+
+ /* TOPIC INFORMATION PAGE */
 /* Lewa część */
 .left-section {
     width: 60%;
@@ -126,11 +131,13 @@
     text-align: center;
     width: 75%; /* <- Twoje życzenie */
     margin-top: 0; /* brak odstępu od navbaru */
+    max-width: 100%;
   }
   
 /* TOPIC INFOTMATION LAYOUT */
   /* Layout 3 kolumny */
 .three-column-layout {
+    background: transparent;
     display: flex;
     gap: 10px;
     padding: 20px;
@@ -140,7 +147,7 @@
   /* Lewa kolumna: menu */
   .side-menu {
     width: 25%;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7); /* <- półprzezroczysta czerń */
     padding: 10px;
   }
   
@@ -156,7 +163,7 @@
   
   .side-menu a {
     display: block;
-    background-image: url('../img/menu-bg.png'); /* <- Twój obrazek tła */
+    background-image: url('../img/gdrago.jpg'); /* <- Twój obrazek tła */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -185,7 +192,7 @@
   /* Prawa kolumna */
   .right-sidebar {
     width: 20%;
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     font-size: 0.9em;
     color: #fff;
@@ -205,14 +212,14 @@
   }
 
   /* Dropdown ukryty domyślnie */
-.has-dropdown .dropdown {
+.up-dropdown .dropdown {
     display: none;
     margin-top: 5px;
     padding-left: 0;
   }
   
   /* Pokaż, jeśli aktywny */
-  .has-dropdown.open .dropdown {
+  .up-dropdown.open .dropdown {
     display: block;
   }
   
@@ -238,8 +245,183 @@
     cursor: pointer;
     font-size: 1rem;
   }
+
+  /* MAIN CONTENT START PAGE INFO */
+
+  .main-content {
+    max-width: 800px;
+    /* margin: 60px auto; */
+    padding: 40px;
+    background: rgba(255, 248, 220, 0.95); /* Light parchment color with slight transparency */
+    border: 2px solid #8b5a2b;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
   
+  /* Headings */
+  .main-content h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    color: #4b2e0f;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #d2b48c;
+  }
   
-  
+  /* Paragraphs */
+  .main-content p {
+    font-size: 1.1em;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
   
 
+  /* RIGHT SIDE  */
+  
+  .right-sidebar h2 {
+    font-size: 30px !important;
+
+  }
+  
+
+  .right-sidebar button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Georgia', serif;
+  }
+  
+  .right-sidebar button:hover {
+    background-color: #555;
+  }
+  
+  .hidden-town-list {
+    display: none;
+  }
+
+  #town-list li {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* lekko przeźroczyste tło */
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    
+  }
+  
+  #town-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  #town-list li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+
+
+.castle-card {
+    max-width: 800px;
+    /* margin: 60px auto; */
+    padding: 40px;
+    background: rgba(255, 248, 220, 0.95); /* Light parchment color with slight transparency */
+    border: 2px solid #8b5a2b;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .castle-img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+/* FAQ PAGE */
+
+.page-background-faq {
+    background-image: url('../img/bgcave.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* USUWAMY vertical centering żeby był przyklejony do góry */
+    align-items: flex-start;
+    padding-top: 0; /* brak odstępu od góry */
+    padding-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  .faq-item {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .content .topic {
+    font-size: 30px !important;
+    font-weight: bold;
+  }
+  
+  
+  .faq-item .question {
+    font-weight: bold;
+    color: rgb(80, 75, 41);
+  }
+  
+  .faq-item .answer {
+    background: linear-gradient(to right, #444, #222);
+    color: #fff;
+    border: 2px solid gold;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+.toggle-btn {
+  background: linear-gradient(to bottom, #3b2f17, #1f1b14);
+  color: #f6e27f;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 10px 25px;
+  border: 2px solid gold;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  text-shadow: 1px 1px 2px black;
+  letter-spacing: 1px;
+}
+
+.toggle-btn:hover {
+  background: linear-gradient(to bottom, #564027, #2c261c);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+  transform: scale(1.07);
+}
+
+  

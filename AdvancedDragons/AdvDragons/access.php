@@ -13,10 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([$username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
-        // echo "<pre>";
-        // print_r($user);
-        // echo "</pre>";
 
         if ($user && password_verify($password, $user['password'])) {
 

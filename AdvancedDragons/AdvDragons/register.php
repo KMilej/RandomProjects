@@ -40,11 +40,6 @@ unset($_SESSION['register_errors'], $_SESSION['register_success']);
   </div>
 </section>
 
-<!-- htmlspecialchars() chroni przed XSS
-password_hash() zabezpiecza hasło
-filter_var() sprawdza email
-preg_match() sprawdza siłę hasła
-prepare + execute chroni przed SQL injection -->
 
 <?php
 include('footer.php');

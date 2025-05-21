@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $pageTitle; ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript/JavaScript.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="min-h-screen font-sans text-gray-800">
+    <?php
+    session_start();
+    require_once 'config.php';
+    ?>
+
+    <!-- NAVBAR -->
+    <div class="bg-[#232f3e] p-4">
+        <ul class="flex overflow-x-auto space-x-5 text-sm">
+
+            <?php if (isset($_SESSION["user_id"])): ?>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">Home Page</a></li>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/topicinformation.php" class="text-white hover:underline">Topic Information</a></li>
+                <li><a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/homepage.php" class="text-white hover:underline">FAQ</a></li>
+                <li class="text-pink-400">Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong></li>
+                <li><a href="logout.php" class="text-white hover:underline">Logout</a></li>
+                
+            <?php else: ?>
+                <li><a href="<?php echo BASE_URL; ?>main.php" class="text-white hover:underline">Please Log in to access</a></li>
+                <li><a href="register.php" class="text-white hover:underline">Register</a></li>
+            <?php endif; ?>    
+        </ul>
+    </div>
+
+    <div class="page-background-faq">
+        <div class="content">
+          <h2 class="topic">Frequently Asked Questions</h2>
+        
+          <div class="faq-item">
+            <p class="question">1. What are the characteristics of Black Dragons in Heroes 3?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+        
+          <div class="faq-item">
+            <p class="question">2. Are Green Dragons resistant to spells?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+        
+          <div class="faq-item">
+            <p class="question">3. Which castle offers the best dragons?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          <div class="faq-item">
+            <p class="question">4. Can dragons in Heroes 3 attack multiple units at once?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          
+          <div class="faq-item">
+            <p class="question">5. Which dragons are immune to magic?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          
+          <div class="faq-item">
+            <p class="question">6. What are the differences between Gold and Black Dragons?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          
+          <div class="faq-item">
+            <p class="question">7. How can you recruit dragons in Heroes 3?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          
+          <div class="faq-item">
+            <p class="question">8. Are there neutral dragons in Heroes 3?</p>
+            <button class="toggle-btn">Display the Answer</button>
+          </div>
+          
+        </div>
+      </div>
+      
+      
+
+
+</body>
+</html>
