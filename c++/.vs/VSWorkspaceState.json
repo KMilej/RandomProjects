@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataSOutcome4",
+    "\\DataSOutcome4\\DataSOutcome4"
   ],
-  "SelectedNode": "\\test.txt",
+  "SelectedNode": "\\DataSOutcome4\\DataSOutcome4\\DataSOutcome4.cpp",
   "PreviewInSolutionExplorer": false
 }
