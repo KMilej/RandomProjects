@@ -6,7 +6,9 @@
     <title><?php echo $pageTitle; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="javascript/JavaScript.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/topicinfo.css">
 
 </head>
 <body class="min-h-screen font-sans text-gray-800">

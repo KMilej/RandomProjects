@@ -1,0 +1,169 @@
+/* BACKGROUND */
+.page-background {
+    background-image: url('../img/backtopic.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+  }
+  
+  /* WRAPPER */
+  .content {
+    background-color: rgba(187, 185, 185, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 75%;
+    max-width: 100%;
+  }
+  
+  /* LAYOUT */
+  .three-column-layout {
+    background: transparent;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* SIDE MENU */
+  .side-menu {
+    width: 25%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+  }
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .side-menu li {
+    margin-bottom: 10px;
+  }
+  .side-menu button,
+  .side-menu .dropdown-toggle {
+    width: 100%;
+    background-image: url('../img/menu-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    border: 2px solid #5a4c2e;
+    box-shadow: 2px 2px 5px #000;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .side-menu a:hover,
+  .side-menu button:hover {
+    transform: scale(1.03);
+    text-decoration: underline;
+  }
+  
+  /* TROOPS DROPDOWN */
+  .up-dropdown .dropdown {
+    display: none;
+    margin-top: 5px;
+    padding-left: 0;
+  }
+  .up-dropdown.open .dropdown {
+    display: block;
+  }
+  .dropdown li {
+    margin-bottom: 5px;
+  }
+  
+  /* CENTER CONTENT */
+  .main-content {
+    flex: 1;
+    background: rgba(255, 248, 220, 0.95);
+    padding: 40px;
+    border: 2px solid #8b5a2b;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .main-content h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    color: #4b2e0f;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #d2b48c;
+  }
+  .main-content p {
+    font-size: 1.1em;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  /* RIGHT SIDEBAR */
+  .right-sidebar {
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    font-size: 0.9em;
+    color: #fff;
+    border-radius: 10px;
+  }
+  .right-sidebar h2 {
+    font-size: 30px !important;
+  }
+  .right-sidebar button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+  }
+  .right-sidebar button:hover {
+    background-color: #555;
+  }
+  #town-list.hidden-town-list {
+    display: none;
+  }
+  #town-list li {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  #town-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  #town-list li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* CASTLE TEMPLATE */
+  .castle-card {
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255, 248, 220, 0.95);
+    border: 2px solid #8b5a2b;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .castle-img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
