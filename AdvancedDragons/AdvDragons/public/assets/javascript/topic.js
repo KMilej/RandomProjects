@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {    
-  
-    // ROZWIJANIE DROPDOWNA (TROOPS)
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ⬇️ DROPDOWN TOGGLE FOR TROOPS MENU
     const upDropdownToggles = document.querySelectorAll(".up-dropdown > .dropdown-toggle");
   
     upDropdownToggles.forEach(toggle => {
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   
-    // ŁADOWANIE DANYCH Z JSON (np. DRAGONS)
+    // ⬇️ LOAD DRAGON DATA FROM JSON
     const dragonButtons = document.querySelectorAll("button[data-json]");
     const mainContent = document.querySelector(".main-content");
   
@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(filePath)
           .then(response => {
             if (!response.ok) {
-              throw new Error("Cant Load file");
+              throw new Error("Can't load file");
             }
             return response.json();
           })
           .then(data => {
-            const dragonList = data[dragonType]; // np. data["MysteryDragons"]
+            const dragonList = data[dragonType]; // e.g., data["MysteryDragons"]
             let html = `<h2>${dragonType}</h2><ul>`;
             dragonList.forEach(dragon => {
               html += `
@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
             mainContent.innerHTML = html;
           })
           .catch(err => {
-            mainContent.innerHTML = `<p style="color:red;">Błąd: ${err.message}</p>`;
+            mainContent.innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
           });
       });
     });
   
-    // ALL BUTTONS
+    // ⬇️ STATIC TEXT SECTIONS HANDLING
     const staticSections = {
       whatsnew: `
         <h2>What's New?</h2>
@@ -63,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
       `,
       chronicles: `
         <h2>Heroes Chronicles</h2>
-      <img src="/~s2264629/AdvancedWebScripting/public/assets/img/HeroesChronicles.jpg" alt="HeroesChronicles" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
+        <img src="/~s2264629/AdvancedWebScripting/public/assets/img/HeroesChronicles.jpg" alt="HeroesChronicles" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
         <p>A series of single-player campaigns that tell the story of Tarnum, an immortal hero on a journey through history.</p>
       `,
       hotab: `
-      <h2>Horn of the Abyss</h2>
-      <img src="/~s2264629/AdvancedWebScripting/public/assets/img/Horn_of_the_Abyss.png" alt="Horn of the Abyss Banner" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
-      <p>A fan-made expansion adding new towns, creatures, campaigns, and mechanics. Widely considered a must-have for fans.</p>
-    `,
+        <h2>Horn of the Abyss</h2>
+        <img src="/~s2264629/AdvancedWebScripting/public/assets/img/Horn_of_the_Abyss.png" alt="Horn of the Abyss Banner" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
+        <p>A fan-made expansion adding new towns, creatures, campaigns, and mechanics. Widely considered a must-have for fans.</p>
+      `,
       faction: `
         <h2>Factions</h2>
         <p>Castle, Inferno, Rampart, Dungeon, and more – each with unique creatures, heroes, and playstyle.</p>
@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
-
+  
+  // ⬇️ TOGGLE TOWN LIST VISIBILITY
   document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("toggle-towns");
     const townList = document.getElementById("town-list");
@@ -103,13 +104,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   
+  // ⬇️ LOAD TOWN INFO FROM JSON TEMPLATE
   document.addEventListener("DOMContentLoaded", () => {
     const mainContent = document.querySelector(".main-content");
     const loadCastle = document.getElementById("loadCastle");
     const template = document.getElementById("castleTemplate");
   
     loadCastle.addEventListener("click", function (event) {
-      event.preventDefault(); // ← to ZATRZYMUJE przeładowanie strony
+      event.preventDefault(); // Prevent page reload
   
       const file = this.getAttribute("href");
   
@@ -119,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then(data => {
-          const info = data.castle[0]; // zakładamy że klucz to 'castle'
-          mainContent.innerHTML = ""; // wyczyść środek
+          const info = data.castle[0]; // Assuming key is 'castle'
+          mainContent.innerHTML = ""; // Clear content
   
           const clone = template.content.cloneNode(true);
           clone.querySelector(".castle-name").textContent = info.name;
@@ -137,5 +139,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
-  
   

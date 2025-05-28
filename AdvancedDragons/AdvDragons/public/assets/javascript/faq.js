@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Predefined answers for FAQ questions
     const answers = [
       "Black Dragons are the most powerful – they are immune to all spells and have very high stats. They cannot be resurrected by magic.",
       "Green Dragons are partially resistant to spells but can still be affected by some, unlike Black Dragons who are completely immune.",
@@ -9,14 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
       "You recruit dragons by building specific dwellings in the Rampart or Dungeon castles, such as the Dragon Cave or Dragon Cliffs.",
       "Yes! Creatures like Faerie Dragons and Crystal Dragons are neutral and can be encountered in certain map locations or hired from special dwellings."
     ];
-    
+  
+    // Select all answer toggle buttons
     const buttons = document.querySelectorAll('.toggle-btn');
   
+    // Attach click event to each button
     buttons.forEach((button, index) => {
       button.addEventListener('click', () => {
         const parent = button.parentElement;
         const existing = parent.querySelector('.answer');
   
+        // Toggle answer visibility
         if (existing) {
           existing.remove();
           button.textContent = "Display the Answer";
