@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "Register";
-include('header.php');
+include('partials/header.php');
 
 $errors = $_SESSION['register_errors'] ?? [];
 $success = $_SESSION['register_success'] ?? '';
@@ -42,5 +42,5 @@ unset($_SESSION['register_errors'], $_SESSION['register_success']);
 
 
 <?php
-include('footer.php');
+include('partials/footer.php');
 ?>

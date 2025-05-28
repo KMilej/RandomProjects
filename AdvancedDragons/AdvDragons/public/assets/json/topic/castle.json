@@ -1,7 +1,7 @@
 {
     "castle": [
       {
-        "img": "img/castle_h3.png",
+        "img": "/~s2264629/AdvancedWebScripting/public/assets/img/castle_h3.png",
         "name": "Castle",
         "description": "The Castle faction represents the noble and righteous kingdom of Erathia. It is home to brave knights, skilled archers, and powerful angels. The faction emphasizes strong defense, honor, and traditional might.",
         "color": "The architecture features white stone walls, blue and gold banners, and gleaming rooftops, symbolizing purity, valor, and divine protection.",

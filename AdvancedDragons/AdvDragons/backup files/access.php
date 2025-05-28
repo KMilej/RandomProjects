@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'config.php';
+require 'config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);

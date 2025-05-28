@@ -2,6 +2,6 @@
 session_start();
 session_unset(); // Remove session variables
 session_destroy(); // Destroy session
-header("Location: main.php"); // Redirect to home page
+header("Location: /~s2264629/AdvancedWebScripting/public/index.php");
 exit();
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require __DIR__ . '/../config.php';
+require __DIR__ . '/../config/config.php';
 
 
 $errors = [];
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $dbConnect->prepare("INSERT INTO Users (username, email, password, role) VALUES (?, ?, ?, ?)");
         $stmt->execute([$username, $email, $hashedPassword, $role]);
 
-        $_SESSION['register_success'] = "✅ Your account has been created. You can now log in.";
+        $_SESSION['register_success'] = " Your account has been created. You can now log in.";
     } else {
         $_SESSION['register_errors'] = $errors;
     }

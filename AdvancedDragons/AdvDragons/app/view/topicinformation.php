@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "topicinformation";
-include('header.php');
+include('partials/header.php');
 ?>
 
 <div class="page-background">
@@ -63,7 +63,7 @@ include('header.php');
             <button id="toggle-towns">Show More</button>
 
             <ul id="town-list" class="hidden-town-list">
-            <li><a href="json/Towns/castle.json" id="loadCastle">🏰 Castle</a></li>
+            <li><a href="<?= BASE_URL ?>public/assets/json/topic/castle.json" id="loadCastle">🏰 Castle</a></li>
             <li>🏛️ Rampart</li>
             <li>💀 Necropolis</li>
             <li>🔥 Inferno</li>
@@ -93,5 +93,5 @@ include('header.php');
 
 
 <?php
-include('footer.php');
+include('partials/footer.php');
 ?>

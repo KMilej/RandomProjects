@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
   dragonButtons.forEach(button => {
     button.addEventListener("click", () => {
       const dragonType = button.dataset.json;
-      const filePath = `json/${dragonType}.json`;
+      const filePath = `/~s2264629/AdvancedWebScripting/public/assets/json/topic/${dragonType}.json`;
+
 
       fetch(filePath)
         .then(response => {
@@ -82,12 +83,12 @@ const staticSections = {
   `,
   chronicles: `
     <h2>Heroes Chronicles</h2>
-    <img src="img/HeroesChronicles.jpg" alt="HeroesChronicles" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
+  <img src="/~s2264629/AdvancedWebScripting/public/assets/img/HeroesChronicles.jpg" alt="HeroesChronicles" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
     <p>A series of single-player campaigns that tell the story of Tarnum, an immortal hero on a journey through history.</p>
   `,
   hotab: `
   <h2>Horn of the Abyss</h2>
-  <img src="img/Horn_of_the_Abyss.png" alt="Horn of the Abyss Banner" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
+  <img src="/~s2264629/AdvancedWebScripting/public/assets/img/Horn_of_the_Abyss.png" alt="Horn of the Abyss Banner" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
   <p>A fan-made expansion adding new towns, creatures, campaigns, and mechanics. Widely considered a must-have for fans.</p>
 `,
 

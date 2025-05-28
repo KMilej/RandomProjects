@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "faq";
-include('header.php');
+include('partials/header.php');
 ?>
 
 <div class="page-background-faq">
@@ -50,5 +50,5 @@ include('header.php');
       </div>
 
 <?php
-include('footer.php');
+include('partials/footer.php');
 ?>

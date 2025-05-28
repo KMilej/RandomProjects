@@ -1,10 +1,10 @@
 <?php
 $pageTitle = "Homepage";
-include('header.php');
+include('partials/header.php');
 ?>
 
 <div class="image-overlay-wrapper">
-    <img src="img/main.jpg" alt="Heroes" class="main-image-bg">
+    <img src="../../public/assets/img/header.jpg" alt="Heroes" class="main-image-bg">
 
     <div class="overlay-absolute">
         <div class="left-section">
@@ -65,12 +65,12 @@ With undisguised joy and excitement I would like to invite you all to the DUBBIN
         <div class="right-section">
             <div class="top-box">
                 <h3>All Mighty DRAGONS</h3>
-                <img src="img/Bdragon.jpg" alt="Dragon" class="dragon-img">
+                <img src="<?= BASE_URL ?>public/assets/img/Bdragon.jpg" alt="Dragon" class="dragon-img">
                 <ul>
                     <li>
                     In Heroes of Might and Magic III, the Black Dragon is one of the most powerful and iconic creatures in the game, especially renowned in the Dungeon faction. Here's a breakdown of what makes the Black Dragon so special:</li>
                     <li class="dragon-row">
-                    <img src="img/gdragon.jpg" alt="Green Dragon" class="dragon-img1">
+                    <img src="<?= BASE_URL ?>public/assets/img/gdragon.jpg" alt="Dragon" class="dragon-img">
                     <span>In Heroes of Might and Magic III: Armageddon's Blade and The Shadow of Death expansions, the Gold Dragon is the upgraded Level 7 unit of the Rampart faction. Like the Black Dragon, it is one of the most powerful creatures in the game, with unique traits that reflect its ancient and majestic lore.</span>
                     </li>
                 </ul>
@@ -82,7 +82,7 @@ With undisguised joy and excitement I would like to invite you all to the DUBBIN
                     Dragons are among the most powerful and iconic creatures in the game. Most of them are Level 7 units, the highest tier available, and are known for their massive damage, high health, and often unique abilities such as spell immunity or breath attacks.
                     </li>
                     <li>
-                    <a href="http://olly.fifecomptech.net/~s2264629/AdvancedWebScripting/topicinformation.php" target="_blank" class="dragon-link">dive in to it</a>
+                    <a href="<?= BASE_URL ?>app/view/topicinformation.php" target="_blank" class="dragon-link">dive in to it</a>
                     </li>
                 </ul>
         </div>
@@ -95,5 +95,5 @@ With undisguised joy and excitement I would like to invite you all to the DUBBIN
 
 
 <?php
-include('footer.php');
+include('partials/footer.php');
 ?>
