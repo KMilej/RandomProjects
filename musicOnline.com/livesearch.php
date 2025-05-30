@@ -1,24 +1,29 @@
 <?php
-include("config.php"); // Connect to database
+include('config.php');
 
-if (isset($_POST['input'])) { // Check if search input is provided
-    $input = $_POST['input'];
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['input'])) {
+    $search = $_POST['input'];
+    $category = $_POST['category'] ?? '';
 
-    // Use prepared statement to prevent SQL injection
-    $query = "SELECT * FROM products WHERE title LIKE ?";
-    $stmt = mysqli_prepare($dbConnect, $query); // Prepare the SQL statement to prevent SQL injection
-    $search = $input . '%'; // Append '%' to search for titles starting with the input
-    mysqli_stmt_bind_param($stmt, "s", $search); // Bind the search term as a string parameter
-    mysqli_stmt_execute($stmt); // Execute the prepared statement
-    $result = mysqli_stmt_get_result($stmt); // Get the result set from the executed statement
+    // Zabezpieczenie przed SQL injection
+    $search = mysqli_real_escape_string($dbConnect, $search);
+    $category = mysqli_real_escape_string($dbConnect, $category);
 
+    // Szukaj po tytule LUB artyście
+    $sql = "SELECT * FROM products WHERE (title LIKE '%$search%' OR artist LIKE '%$search%')";
+
+    // Jeśli wybrano kategorię, dodaj warunek
+    if (!empty($category)) {
+        $sql .= " AND category = '$category'";
+    }
+
+    $result = mysqli_query($dbConnect, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         echo '<main>
                 <div class="products">';
 
         while ($row = mysqli_fetch_assoc($result)) {
-            // Set image path, use placeholder if empty
             $imagePath = !empty($row['image']) ? "images/products/{$row['image']}" : "images/products/placeholder.jpg";
 
             echo "<div class='productsearch'>
@@ -26,11 +31,12 @@ if (isset($_POST['input'])) { // Check if search input is provided
                         <img src='{$imagePath}' alt='Product Image' onerror=\"this.onerror=null; this.src='images/products/placeholder.jpg';\">
                     </div>
                     <div class='product-infosearch'>
+                        <div class='artist'><strong>{$row['artist']}</strong></div>
                         <div class='title'>
-                            <a href='#'>{$row['title']}</a>
+                            <a href='pages.php?id={$row['id']}'>" . htmlspecialchars($row['title']) . "</a>
                         </div>
-                        <div class='description'>{$row['description']}</div>
-                        <div class='price'>{$row['price']} $</div>
+                        <div class='description'>" . htmlspecialchars($row['description']) . "</div>
+                        <div class='price'>" . number_format($row['price'], 2) . " $</div>
                     </div>
                   </div>";
         }
@@ -39,5 +45,7 @@ if (isset($_POST['input'])) { // Check if search input is provided
     } else {
         echo "<h6 class='text-danger text-center mt-3'>No data found</h6>";
     }
+} else {
+    echo "<h6 class='text-danger text-center mt-3'>Invalid request</h6>";
 }
 ?>

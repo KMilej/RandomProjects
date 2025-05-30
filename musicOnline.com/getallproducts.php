@@ -1,24 +1,22 @@
 <?php
-session_start(); // Start session
-include('config.php'); // Connect to database
+session_start();
+include('config.php');
 
-header('Content-Type: application/json'); // Set response type to JSON
+header('Content-Type: application/json');
 error_reporting(E_ALL);
-ini_set('display_errors', 1); // Enable error reporting
+ini_set('display_errors', 1);
 
-// ✅ Get all products from the database
-$sql = "SELECT id, image, title, price, description, category, ownedby FROM products";
+$sql = "SELECT id, image, title, artist, price, description, category, ownedby FROM products";
 $result = $dbConnect->query($sql);
 
 $products = [];
 while ($row = $result->fetch_assoc()) {
-    // ✅ Ensure correct image path
+    // Poprawka ścieżki do obrazka (jeśli potrzeba)
     if (!str_starts_with($row['image'], "images/products/")) {
         $row['image'] = "images/products/" . $row['image'];
     }
-    $products[] = $row; // Add product to array
+    $products[] = $row;
 }
 
-// ✅ Return all products as JSON
 echo json_encode($products);
 ?>

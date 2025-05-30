@@ -11,6 +11,7 @@ if (!isset($_SESSION['username'])) {
 // Get form data
 $id = $_POST['id'] ?? "";
 $title = $_POST['title'] ?? "";
+$artist = $_POST['artist'] ?? '';
 $price = $_POST['price'] ?? "";
 $description = $_POST['description'] ?? "";
 $category = $_POST['category'] ?? "";
@@ -20,9 +21,10 @@ $userRole = $_SESSION['role'] ?? "user";
 
 if ($userRole === "admin") {
     // ✅ Admin can edit any product
-    $sql = "UPDATE products SET title=?, price=?, description=?, category=? WHERE id=?";
+    $sql = "UPDATE products SET title = ?, artist = ?, price = ?, description = ?, category = ? WHERE id = ?";
     $stmt = $dbConnect->prepare($sql);
-    $stmt->bind_param("sdssi", $title, $price, $description, $category, $id);
+    $stmt->bind_param("ssdssi", $title, $artist, $price, $description, $category, $id);
+
 } else {
     // ✅ Regular user can only edit their own products
     $sql = "UPDATE products SET title=?, price=?, description=?, category=? WHERE id=? AND ownedby=?";

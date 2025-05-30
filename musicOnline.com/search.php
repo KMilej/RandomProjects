@@ -1,32 +1,29 @@
 <?php
-// Connect to the database
-include('config.php');
+include('config.php'); // DB connection
 
-// Check if a search query is provided
 if (isset($_GET['query'])) {
     $search = $_GET['query'];
-    $category = $_GET['category'] ?? ''; // Default to empty if no category selected
+    $category = $_GET['category'] ?? '';
 
-    // Protect against SQL Injection
+    // Sanitize input
     $search = mysqli_real_escape_string($dbConnect, $search);
     $category = mysqli_real_escape_string($dbConnect, $category);
 
-    // Build SQL query to search products by title
-    $sql = "SELECT * FROM products WHERE title LIKE '%$search%'";
+    // Szukamy po tytule LUB artyście
+    $sql = "SELECT * FROM products WHERE (title LIKE '%$search%' OR artist LIKE '%$search%')";
 
-    // If a category is selected, add it to the query
+    // Dodaj kategorię jeśli wybrana
     if (!empty($category)) {
         $sql .= " AND category = '$category'";
     }
 
     $result = mysqli_query($dbConnect, $sql);
 
-    echo "<h2>Search results for: <strong>$search</strong></h2>";
+    echo "<h2>Search results for: <strong>" . htmlspecialchars($search) . "</strong></h2>";
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            // Display search results
-            echo "<p><strong>" . $row['title'] . "</strong> - " . $row['description'] . " - $" . $row['price'] . "</p>";
+            echo "<p><strong>" . htmlspecialchars($row['title']) . "</strong> by <em>" . htmlspecialchars($row['artist']) . "</em> — " . htmlspecialchars($row['description']) . " — <strong>$" . number_format($row['price'], 2) . "</strong></p>";
         }
     } else {
         echo "<p>No results found.</p>";

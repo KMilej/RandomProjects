@@ -54,6 +54,7 @@ if (isset($_GET['id'])) {
 
         <!-- Right Column - Product Details -->
         <div class="productright">
+            <h2><?php echo htmlspecialchars($product['artist']); ?></h2
             <h1><?php echo htmlspecialchars($product['title']); ?></h1>
             <h4><?php echo number_format($product['price'], 2); ?> PLN</h4>
             <p><strong>Category:</strong> <?php echo htmlspecialchars($product['category']); ?></p>

@@ -46,33 +46,33 @@ document.addEventListener("DOMContentLoaded", function () {
     //     });
     // });
 
-    $(document).ready(function() {
-        $("#addProductForm").submit(function(event) {
-            event.preventDefault(); // 🚀 Prevent default form submission
+    $(document).ready(function () {
+        // ... inne rzeczy, np. $("#addProductForm").submit(...)
     
-            var formData = new FormData(this);
-            console.log("✅ Sending FormData:", [...formData.entries()]); // 🔍 Debugging
+        // 🚀 Tu wklej ten kod:
+        $("#editProductForm").submit(function (e) {
+            e.preventDefault();
+            let formData = $(this).serialize(); // Zbiera wszystkie pola
     
             $.ajax({
-                url: "addproduct.php", // 🚀 PHP file handling the upload
+                url: "edit_product.php",
                 type: "POST",
                 data: formData,
-                processData: false,
-                contentType: false,
-                dataType: "json", // Expect JSON response from server
-                success: function(response) {
-                    console.log("✅ Server Response:", response); // 🔍 Debugging
-                    alert(response.message); // Show the message in an alert
+                dataType: "json",
+                success: function (response) {
+                    alert(response.message);
                     if (response.message.includes("✅")) {
-                        $("#addProductForm")[0].reset(); // Reset form only on success
+                        closeEditModal();
+                        document.getElementById("showProducts").click(); // Odśwież listę
                     }
                 },
-                error: function(xhr, status, error) {
-                    console.log("❌ AJAX Error:", error);
+                error: function (xhr, status, error) {
                     alert("❌ Error: " + error);
                 }
             });
         });
+    
+        // ... inne funkcje np. kliknięcia do przycisków admin/user
     });
     
        
@@ -99,17 +99,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         output += "<p>No products found.</p>";
                     } else {
                         output += "<table border='1'>";
-                        output += "<tr><th>Image</th><th>Title</th><th>Price</th><th>Description</th><th>Category</th><th>Actions</th></tr>";
+                        output += "<tr><th>Image</th><th>Title</th><th>Artist</th><th>Price</th><th>Description</th><th>Category</th><th>Actions</th></tr>";
                         products.forEach(product => {
                             output += `
                                 <tr>
                                     <td><img src="images/products/${product.image}" width="50"></td>
                                     <td>${product.title}</td>
+                                    <td>${product.artist}</td>
                                     <td>${product.price}</td>
                                     <td>${product.description}</td>
                                     <td>${product.category}</td>
                                     <td>
-                                        <button onclick="editProduct(${product.id}, '${product.title}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
+                                        <button onclick="editProductt(${product.id}, '${product.title}', '${product.artist}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
                                         <button onclick="deleteProduct(${product.id})">Delete</button>
                                     </td>
                                 </tr>
@@ -142,16 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error("❌ Error:", error));
     }
 // edit products
-    function editProduct(id, title, price, description, category) {
+function editProduct(id, title, artist, price, description, category) {
         let newTitle = prompt("Edit Title:", title);
         let newPrice = prompt("Edit Price:", price);
         let newDescription = prompt("Edit Description:", description);
         let newCategory = prompt("Edit Category:", category);
+        let newArtist = prompt("Edit Artist:", artist);
+
     
         fetch("edit_product.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: `id=${id}&title=${newTitle}&price=${newPrice}&description=${newDescription}&category=${newCategory}`
+            body: `id=${id}&title=${newTitle}&artist=${newArtist}&price=${newPrice}&description=${newDescription}&category=${newCategory}`
+
         })
         .then(response => response.json())
         .then(data => {
@@ -199,18 +203,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     output += "<p>No products found.</p>";
                 } else {
                     output += "<table border='1'>";
-                    output += "<tr><th>Image</th><th>Title</th><th>Price</th><th>Description</th><th>Category</th><th>Seller</th><th>Actions</th></tr>";
+                    output += "<tr><th>Image</th><th>Title</th><th>Artist</th><th>Price</th><th>Description</th><th>Category</th><th>Seller</th><th>Actions</th></tr>";
                     products.forEach(product => {
                         output += `
                             <tr>
                                 <td><img src="${product.image}" width="50"></td>
+                                <td>${product.artist}</td>
                                 <td>${product.title}</td>
                                 <td>${product.price}</td>
                                 <td>${product.description}</td>
                                 <td>${product.category}</td>
                                 <td>${product.ownedby}</td> <!-- Dodanie sprzedawcy -->
                                 <td>
-                                    <button onclick="editProduct(${product.id}, '${product.title}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
+                                    <button onclick="editProduct(${product.id}, '${product.title}', '${product.artist}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
                                     <button onclick="deleteProduct(${product.id})">Delete</button>
                                 </td>
                             </tr>
@@ -309,4 +314,23 @@ function editUser(id, username, email, role) {
         document.getElementById("showManageUser").click(); // Odśwież listę użytkowników
     })
     .catch(error => console.error("❌ Error:", error));
+}
+
+
+
+// TESTTTTT
+
+function editProductt(id, title, artist, price, description, category) {
+    document.getElementById("editProductId").value = id;
+    document.getElementById("editTitle").value = title;
+    document.getElementById("editArtist").value = artist;
+    document.getElementById("editPrice").value = price;
+    document.getElementById("editDescription").value = description;
+    document.getElementById("editCategory").value = category;
+
+    document.getElementById("editProductModal").style.display = "block"; // ⬅️ pokaż modal
+}
+
+function closeEditModal() {
+    document.getElementById("editProductModal").style.display = "none"; // ⬅️ zamknij modal
 }

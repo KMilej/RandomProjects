@@ -13,6 +13,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -67,6 +68,7 @@ error_log("🚀 Test logowania błędów PHP!");
                     <option value="pop">Pop</option>
                     <option value="jazz">Jazz</option>
                     <option value="hiphop">Hip-Hop</option>
+                    <option value="trance">Hip-Hop</option>
                 </select>
                 <button type="submit">Search</button>
             </form>

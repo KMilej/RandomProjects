@@ -1,77 +1,71 @@
 <?php
-session_start(); // Start session to track user
+session_start();
+include('config.php');
 
-include('config.php'); // Connect to database
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    header('Content-Type: application/json');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Check if form was submitted
-    header('Content-Type: application/json'); // Set response format to JSON
-
-    if (!$dbConnect) { // Check database connection
+    if (!$dbConnect) {
         echo json_encode(["message" => "❌ Database connection failed."]);
         exit;
     }
 
-    // Get form data (default to empty if not set)
-    $artist = $_POST['artist'] ?? "";
+    // Get form data
     $title = $_POST['title'] ?? "";
     $price = $_POST['price'] ?? "";
     $description = $_POST['description'] ?? "";
     $category = $_POST['category'] ?? "";
-    $ownedby = $_SESSION['username'] ?? "unknown"; // Set owner from session
+    $artist = $_POST['artist'] ?? ""; // ⬅️ NEW
+    $ownedby = $_SESSION['username'] ?? "unknown";
 
-    // Check if fields are empty
-    if (empty($title) || empty($price) || empty($description) || empty($category)) {
+    // Validate fields
+    if (empty($title) || empty($price) || empty($description) || empty($category) || empty($artist)) {
         echo json_encode(["message" => "❌ All fields are required!"]);
         exit;
     }
 
-    // Validate price
     if (!is_numeric($price) || $price < 0) {
         echo json_encode(["message" => "❌ Price cannot be negative!"]);
         exit();
     }
-    
-    $uploadDir = __DIR__ . "/images/products/"; // Set image upload directory
 
-    // Create directory if it doesn't exist
+    $uploadDir = __DIR__ . "/images/products/";
     if (!is_dir($uploadDir) && !mkdir($uploadDir, 0777, true)) {
         echo json_encode(["message" => "❌ Failed to create upload directory."]);
         exit;
     }
 
-    // Check if an image was uploaded
     if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
         echo json_encode(["message" => "❌ No image uploaded or upload error occurred."]);
         exit;
     }
 
-    // Validate image file type
     $imageName = basename($_FILES['image']['name']);
     $imagePath = $uploadDir . $imageName;
-    $imageType = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION)); 
-
-    $allowedTypes = ['jpg', 'jpeg']; // Allowed file types
+    $imageType = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
+    $allowedTypes = ['jpg', 'jpeg'];
 
     if (!in_array($imageType, $allowedTypes)) {
         echo json_encode(["message" => "❌ File format is invalid. Only JPG/JPEG images are allowed."]);
         exit;
     }
 
-    // Move uploaded file to target folder
     if (!move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
         echo json_encode(["message" => "❌ Image upload failed."]);
         exit;
     }
 
-    $dbImagePath = $imageName; // Save image name for database
+    $dbImagePath = $imageName;
 
-    // Insert product into database
-    $sql = "INSERT INTO products (image, title, price, description, category, ownedby) 
-            VALUES (?, ?, ?, ?, ?, ?)";
+    // ✅ INSERT with artist
+    $sql = "INSERT INTO products (image, title, price, description, category, artist, ownedby) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $dbConnect->prepare($sql);
-    $stmt->bind_param("ssdsss", $dbImagePath, $title, $price, $description, $category, $ownedby);
+    $stmt->bind_param("ssdssss", $dbImagePath, $title, $price, $description, $category, $artist, $ownedby);
 
-    if ($stmt->execute()) { // Check if insert was successful
+    if ($stmt->execute()) {
         echo json_encode([
             "message" => "✅ Product added successfully!",
             "image" => $dbImagePath,
@@ -79,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Check if form was submitted
             "price" => $price,
             "description" => $description,
             "category" => $category,
+            "artist" => $artist,
             "ownedby" => $ownedby
         ]);
     } else {

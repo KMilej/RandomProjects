@@ -49,6 +49,9 @@ include('header.php');
                         <div class="productimg">
                             <img src="<?php echo "images/products/{$product['image']}" ?>" alt="">
                             <div class="productinfo">
+                            <p class="artist">
+                            <?php echo $product['artist']; ?>
+                            </p>
                             <p class="title">
                                 <a href="pages.php?id=<?php echo $product['id'] ?>">
                                  <?php echo htmlspecialchars($product['title']); ?>
