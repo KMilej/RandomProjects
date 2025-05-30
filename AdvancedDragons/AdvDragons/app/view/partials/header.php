@@ -5,7 +5,10 @@
 // error_reporting(E_ALL);
 
 //  Start session and load configuration
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../../../config/config.php';
 // Access control: protect all pages except login, register, index
 $currentPage = basename($_SERVER['PHP_SELF']);

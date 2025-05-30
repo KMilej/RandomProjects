@@ -1,27 +1,48 @@
 <?php
-session_start(); // Start session
-include('config.php'); // Connect to database
+session_start();
+include('config.php');
 
-header('Content-Type: application/json'); // Set response type to JSON
+header('Content-Type: application/json');
 error_reporting(E_ALL);
-ini_set('display_errors', 1); // Enable error reporting
+ini_set('display_errors', 1);
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") { // Check if request is POST
-    $id = $_POST['id']; // Get user ID from request
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+    $userId = intval($_POST['id']);
 
-    // ✅ Prepare SQL query to delete user
-    $stmt = $dbConnect->prepare("DELETE FROM users WHERE user_id = ?");
-    $stmt->bind_param("i", $id);
+    // 1. Pobierz username tego użytkownika
+    $getUsernameStmt = $dbConnect->prepare("SELECT username FROM users WHERE user_id = ?");
+    $getUsernameStmt->bind_param("i", $userId);
+    $getUsernameStmt->execute();
+    $getUsernameStmt->bind_result($username);
+    $getUsernameStmt->fetch();
+    $getUsernameStmt->close();
 
-    if ($stmt->execute()) { // Check if deletion was successful
-        echo json_encode(["status" => "success", "message" => "User deleted successfully"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Error deleting user"]);
+    if (!$username) {
+        echo json_encode(["success" => false, "message" => "User not found."]);
+        exit;
     }
 
-    $stmt->close(); // Close statement
-    $dbConnect->close(); // Close database connection
+    // 2. Usuń produkty przypisane do username
+    $deleteProductsStmt = $dbConnect->prepare("DELETE FROM products WHERE ownedby = ?");
+    $deleteProductsStmt->bind_param("s", $username);
+    $deleteProductsStmt->execute();
+    $deleteProductsStmt->close();
+
+    // 3. Usuń użytkownika
+    $deleteUserStmt = $dbConnect->prepare("DELETE FROM users WHERE user_id = ?");
+    $deleteUserStmt->bind_param("i", $userId);
+    $deleteUserStmt->execute();
+
+    if ($deleteUserStmt->affected_rows > 0) {
+        echo json_encode(["success" => true, "message" => "User and their products deleted."]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Failed to delete user."]);
+    }
+
+    $deleteUserStmt->close();
 } else {
-    echo json_encode(["status" => "error", "message" => "Invalid request"]); // Handle wrong request method
+    echo json_encode(["success" => false, "message" => "Invalid request."]);
 }
+
+$dbConnect->close();
 ?>

@@ -46,13 +46,86 @@ document.addEventListener("DOMContentLoaded", function () {
     //     });
     // });
 
-    $(document).ready(function () {
-        // ... inne rzeczy, np. $("#addProductForm").submit(...)
+    // $(document).ready(function () {
+
+    //     $("#addProductForm").submit(function(event) {
+    //         event.preventDefault(); // Zapobiega przeładowaniu strony
+    //         var formData = new FormData(this);
+
+    //         $.ajax({
+    //             url: "",  // Wysyłanie do TEGO SAMEGO PLIKU PHP
+    //             type: "POST",
+    //             data: formData,
+    //             processData: false,
+    //             contentType: false,
+    //             success: function(response) {
+    //                 let jsonData = JSON.parse(response);
+    //                 $("#message").html(jsonData.message); // Wyświetl komunikat
+    //                 $("#addProductForm")[0].reset(); // Czyści formularz
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 $("#message").html("❌ Error: " + error);
+    //             }
+    //         });
+    //     });
+   
     
-        // 🚀 Tu wklej ten kod:
+    //     // 🚀 Tu wklej ten kod:
+    //     $("#editProductForm").submit(function (e) {
+    //         e.preventDefault();
+    //         let formData = $(this).serialize(); // Zbiera wszystkie pola
+    
+    //         $.ajax({
+    //             url: "edit_product.php",
+    //             type: "POST",
+    //             data: formData,
+    //             dataType: "json",
+    //             success: function (response) {
+    //                 alert(response.message);
+    //                 if (response.message.includes("✅")) {
+    //                     closeEditModal();
+    //                     document.getElementById("showProducts").click(); // Odśwież listę
+    //                 }
+    //             },
+    //             error: function (xhr, status, error) {
+    //                 alert("❌ Error: " + error);
+    //             }
+    //         });
+    //     });
+    
+    //     // ... inne funkcje np. kliknięcia do przycisków admin/user
+    // });
+
+    $(document).ready(function () {
+        // ✅ Obsługa dodawania produktu dla USER
+        $("#addProductForm").submit(function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+        
+            $.ajax({
+                url: "addproduct.php", // tu musi być prawidłowa ścieżka do pliku
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    let jsonData = typeof response === "object" ? response : JSON.parse(response);
+                    $("#message").html(jsonData.message);
+                    if (jsonData.message.includes("✅")) {
+                        $("#addProductForm")[0].reset();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $("#message").html("❌ Error: " + error);
+                }
+            });
+        });
+        
+    
+        // ✅ Obsługa edycji produktu
         $("#editProductForm").submit(function (e) {
             e.preventDefault();
-            let formData = $(this).serialize(); // Zbiera wszystkie pola
+            let formData = $(this).serialize();
     
             $.ajax({
                 url: "edit_product.php",
@@ -63,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     alert(response.message);
                     if (response.message.includes("✅")) {
                         closeEditModal();
-                        document.getElementById("showProducts").click(); // Odśwież listę
+                        document.getElementById("showProducts").click();
                     }
                 },
                 error: function (xhr, status, error) {
@@ -71,9 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
-    
-        // ... inne funkcje np. kliknięcia do przycisków admin/user
     });
+    
     
        
     document.addEventListener("DOMContentLoaded", function () {
@@ -208,14 +280,14 @@ function editProduct(id, title, artist, price, description, category) {
                         output += `
                             <tr>
                                 <td><img src="${product.image}" width="50"></td>
-                                <td>${product.artist}</td>
                                 <td>${product.title}</td>
+                                <td>${product.artist}</td>
                                 <td>${product.price}</td>
                                 <td>${product.description}</td>
                                 <td>${product.category}</td>
                                 <td>${product.ownedby}</td> <!-- Dodanie sprzedawcy -->
                                 <td>
-                                    <button onclick="editProduct(${product.id}, '${product.title}', '${product.artist}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
+                                    <button onclick="editProductt(${product.id}, '${product.title}', '${product.artist}', '${product.price}', '${product.description}', '${product.category}')">Edit</button>
                                     <button onclick="deleteProduct(${product.id})">Delete</button>
                                 </td>
                             </tr>

@@ -46,8 +46,13 @@ error_log("🚀 Test logowania błędów PHP!");
             <?php if (isset($_SESSION["user_id"])): ?>
             <span>Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>!</span>
             <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/logout.php">Logout</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Sell Items</a>
-        <?php else: ?>
+            <?php if ($_SESSION["role"] === "admin"): ?>
+            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Admin Dashboard</a>
+            <?php else: ?>
+                <!-- 👤 Regular user options -->
+                <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Sell Items</a>
+            <?php endif; ?>
+            <?php else: ?>
             <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/login.php">Log In</a>
             <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/register.php">Register</a>
         <?php endif; ?>
