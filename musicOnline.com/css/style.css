@@ -1,0 +1,588 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+}
+
+header .top-banner img {
+  width: 100%;
+  height: 160px; 
+  object-fit: cover;
+}
+
+.logo {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+}
+
+.logo img {
+  max-width: 100%; 
+  height: auto;
+}
+
+
+
+.allcontent {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 15%;
+}
+
+.allcontent .search-box input {
+  /* width: 400px; Set a fixed width */ 
+  height: 40px; /* Optional: Adjust height */
+  padding: 10px; /* Optional: More space inside */
+  font-size: 16px; /* Optional: Bigger text */
+}
+
+/* NAVIGATION BAR */
+
+.navigation {
+    width: 100%;
+    background: #222;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+    
+.navigation span {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.navigation a {
+  color: white;
+}
+
+/* Styl dla sekcji kategorii */
+.categoriess {
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Styl dla nagłówka "load categories" */
+.categoriesload {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Styl dla linków kategorii */
+.categoriess a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* Hover efekt */
+.categoriess a:hover {
+  background-color: #0056b3;
+}
+
+/*Search BAR */
+
+
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    background: #f8f8f8;
+}
+ .latest-products {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    background: #f4f4f4;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    background-color: #f7e8f0;
+    padding: 10px;
+  }
+  
+  footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  footer .logo {
+    margin-bottom: 30px;
+  }
+  
+  footer h4 {
+    font-size: 14px;
+    padding-bottom: 20px;
+  }
+  
+  footer p {
+    font-size: 13px;
+    padding-bottom: 0 0 8px 0;
+  }
+  footer a {
+    font-size: 13px;
+    text-decoration: none;           /*turn off link design*/
+    margin: 0 0 8px 0;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  footer .follow {
+    margin-top: 20px;
+  }
+  
+  footer .follow i {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+  }
+  
+  footer .install .row img{
+    border: 1px solid #088178;
+    border-radius: 6px;
+  }
+  
+  footer .install img {
+    margin: 10px 0 15px 0;
+  }
+  
+  footer .follow i:hover,
+  footer a:hover {
+    color: #088178;
+  }
+  
+  footer .copyright {
+    width: 100%;
+    text-align: center;
+  }
+
+/* ADVERTISING CSS */
+
+.advertising {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+}
+
+  .slideshow img {
+      padding-top: 1%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+  }
+  
+  .slideshow img.active {
+      opacity: 1;
+  }
+
+  /* Tracking !!!!!!!!!!!!!!!!!!!!!!!! */
+
+.tracking {
+    background: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.small-image {
+  width: 100%; /* Reduce size to 20% of the original (80% smaller) */
+  height: 80px !important; /* Maintain aspect ratio */
+}
+
+.trackingbar {
+  padding: 2%
+}
+
+/* MAIN PRODDUCTS */
+
+main {
+  display: grid;
+  grid-column-gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px; 
+}
+
+main .section-title {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+main .products .product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 50px;
+}
+main .productimg {
+  padding: 5px;
+  margin: auto;
+  border: 3px solid black;
+  /* padding: 5px; */
+  border-radius: 5%;
+  width: 100%;  
+  height: 340px; 
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 340px;
+  max-height: 340px;
+
+
+  /* overflow: hidden; Zapobiega przewijaniu */
+}
+main .productimg img {
+  padding: 5px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  object-fit: cover;
+}
+main .product .title a {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: #555;
+  line-height: 26px;
+}
+main .products .title a:hover{
+  text-decoration: underline;
+}
+main .products .description {
+  margin-top: 10px;
+}
+
+main .products .price {
+  font-size: 24px;
+  margin-top: 30px;
+  color: darkred;
+}
+
+
+/* Search Bar CSS */
+/* Styl dla sekcji wyszukiwania */
+.productsearch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 35px;
+  margin-top: 30px;
+}
+
+/* Styl dla obrazków wyników wyszukiwania */
+.productimgsearch {
+  padding: 5px;
+  margin: auto;
+  border: 3px solid black;
+  border-radius: 5%;
+  width: 100%;  
+  height: 340px; 
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 163px;
+  max-height: 163px;
+  overflow: hidden; /* Zapobiega przewijaniu */
+}
+
+.productimgsearch img {
+  padding: 5px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Styl dla opisu wyników wyszukiwania */
+.product-infosearch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styl dla tytułów produktów */
+.product-infosearch .title a {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color: #555;
+  line-height: 26px;
+}
+
+.product-infosearch .title a:hover {
+  text-decoration: underline;
+}
+
+/* Styl dla opisu produktów */
+.product-infosearch .description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Styl dla ceny produktów */
+.product-infosearch .price {
+  font-size: 24px;
+  margin-top: 20px;
+  color: darkred;
+}
+
+
+/* LOGIN */
+
+.login button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login button:hover {
+  background-color: #0056b3;
+}
+/* REGISTER */
+
+.registor {
+
+  margin-top: 20px;
+}
+
+.registor button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registor button:hover {
+  background-color: #0056b3;
+}
+ /* USERMENU */
+ .user-menu .userbutton {
+  display: grid;
+ }
+ .user-menu .userbutton button {
+  background-color: #007bff; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  margin: 5px; 
+}
+
+.user-menu .userbutton button:hover {
+  background-color: #0056b3;
+}
+
+/* PRODUCT PAGE INDIVIDUAL */
+
+/* Ensuring the container behaves properly */
+/* .individualproduct {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* Flexbox to align product image and details side by side */
+ .row {
+  /* margin: 4%; */
+  border: 1px solid rgb(187, 187, 187); 
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+/* Left column (product image) */
+.productleft {
+  /* flex: 1; */
+  /* max-width: 50%; Takes 50% of the width */
+  /* text-align: center; */
+   padding: 2%; /*was 20px */
+}
+
+/* Ensure image is responsive */
+.productleft img {
+  display: flex;
+  text-wrap: wrap;
+  /* max-width: 500px; */
+  max-width: 500px;
+  max-height: 500px;
+  min-width: 500px; 
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  object-fit: cover;
+}
+
+.productleft img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Right column (product details) */
+.productright {
+  flex: 1;
+  margin-top: 9%;
+  padding: 2%;
+  /* max-width: 50%; */
+  /* padding: 20px; */
+}
+
+/* Product Title */
+.productright h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Product Price */
+.productright h4 {
+  font-size: 22px;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+/* Product Description */
+.productright p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Add to Cart Button */
+.productright form {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.productright button {
+  background: #ff6600;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  header .top-banner img {
+      height: 120px; 
+  }
+  .row {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .productleft,
+  .productright {
+    max-width: 100%; 
+    text-align: center;
+  }
+  
+  .productleft img {
+    display: flex;
+    text-wrap: wrap;
+    max-height: 2000px; 
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 200px; 
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+  }
+
+  .productright {
+    margin-top: 4%;
+  }
+}
+
+
+/* Dla ekranów mniejszych niż 480px (smartfony) */
+@media screen and (max-width: 480px) {
+  header .top-banner img {
+      height: 100px; 
+  }
+  .productright h1 {
+    font-size: 24px; 
+  }
+
+  .productright h4 {
+    font-size: 18px;
+  }
+
+  .productright p {
+    font-size: 14px;
+  }
+
+  .productright button {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+}

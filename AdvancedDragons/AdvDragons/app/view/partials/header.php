@@ -1,12 +1,22 @@
 <?php
-// 🔧 DEBUG: Enable error display (only during development!)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//  DEBUG: Enable error display (only during development!)
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
-// 🔐 Start session and load configuration
+//  Start session and load configuration
 session_start();
 require_once __DIR__ . '/../../../config/config.php';
+// Access control: protect all pages except login, register, index
+$currentPage = basename($_SERVER['PHP_SELF']);
+$publicPages = ['login.php', 'register.php', 'index.php'];
+
+if (!in_array($currentPage, $publicPages)) {
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    }
+}
 ?>
 
 <!DOCTYPE html>

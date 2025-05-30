@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // POKAŻ/UKRYJ HASŁO
+
   const toggleIcon = document.querySelector(".toggle-password");
   if (toggleIcon) {
     toggleIcon.addEventListener("click", function () {
@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ŁADOWANIE DANYCH Z JSON (np. DRAGONS)
   const dragonButtons = document.querySelectorAll("button[data-json]");
   const mainContent = document.querySelector(".main-content");
 
