@@ -1,4 +1,11 @@
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 session_start();
 include('config.php');
 
@@ -6,7 +13,7 @@ header('Content-Type: application/json');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Sprawdzenie logowania
+// Check if user is logged in
 if (!isset($_SESSION['username'])) {
     echo json_encode(["message" => "❌ You must be logged in!"]);
     exit;

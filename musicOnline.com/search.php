@@ -1,4 +1,11 @@
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 include('config.php'); // DB connection
 
 if (isset($_GET['query'])) {
@@ -9,10 +16,10 @@ if (isset($_GET['query'])) {
     $search = mysqli_real_escape_string($dbConnect, $search);
     $category = mysqli_real_escape_string($dbConnect, $category);
 
-    // Szukamy po tytule LUB artyście
+    // Search by title OR artist
     $sql = "SELECT * FROM products WHERE (title LIKE '%$search%' OR artist LIKE '%$search%')";
 
-    // Dodaj kategorię jeśli wybrana
+    // Add category filter if selected
     if (!empty($category)) {
         $sql .= " AND category = '$category'";
     }

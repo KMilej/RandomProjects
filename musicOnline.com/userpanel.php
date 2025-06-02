@@ -1,4 +1,11 @@
+
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
 
 $pageTitle = 'Main';
 include('header.php');
@@ -44,12 +51,8 @@ include('header.php');
                 <div id="productForm2" style="display: none;">
                     <div id="productsContainer"></div>
                 </div>
-
-
         </div>
     </section>
-
-
 
     <?php elseif ($_SESSION['role'] == 'admin'): ?>
         <section class="user-menu">
@@ -57,15 +60,9 @@ include('header.php');
                 <!-- Manage Users -->
                 <button id="manageUsersBtn">Manage Users</button>
                 <div id="manageUsersSection" style="display: none;">
-                    
-                    <button id= "showManageUser">Show & Modify User</button>
+                    <button id="showManageUser">Show & Modify User</button>
                     <div id="alluserContainer" style="display: none;"></div>
-
-
-
                 </div>                    
-                
-
 
                 <!-- Manage Products -->
                 <button id="manageProductsBtn">Manage Products</button>
@@ -102,7 +99,6 @@ include('header.php');
                     </div>
                     <button id="showAllProductsBtn">Show All Products</button>
                     <div id="allProductsContainer" style="display: none;"></div>
-
                 </div>
             </div>
         </section>
@@ -138,6 +134,5 @@ include('header.php');
         <button type="button" onclick="closeEditModal()">❌ Cancel</button>
     </form>
 </div>
-
 
 <?php include('footer.php'); ?>

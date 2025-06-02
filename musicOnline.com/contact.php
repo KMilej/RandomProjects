@@ -1,11 +1,15 @@
+
+
 <?php
-# Script basic.Connect.php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
 
 $pageTitle = 'Main';
 
 include('header.php');
-
-// require('mysqlConnectSample.php');  //mysqlConnect22
 
 ?>
 
@@ -17,10 +21,9 @@ include('header.php');
         <img src="images/slide/slidepage3.jpg" class="slide" alt="Ad 3">
     </div>
 </div>
-
 </section>
-<section class="latest-products">Last added product</section>
 
+<section class="latest-products">Last added product</section>
 
 <?php
 include('footer.php');

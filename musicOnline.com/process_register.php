@@ -1,8 +1,15 @@
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 require 'config.php'; // Connect to the database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Pobierz i wyczyść dane z formularza
+    // Get and trim form data
     $username = trim($_POST["username"]);
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);

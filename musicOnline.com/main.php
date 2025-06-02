@@ -1,11 +1,16 @@
+
 <?php
-# Script basic.Connect.php
+
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
 
 $pageTitle = 'Main';
 
 include('header.php');
 
-// require('mysqlConnectSample.php');  //mysqlConnect22
 
 ?>
 
@@ -18,23 +23,17 @@ include('header.php');
     </div>
 </div>
 
-<!-- </section>
-<section class="latest-products">Last added product</section> -->
+
 
 <section class="categoriess">
-    <div class="categoriesload">choose your favorite category</div>
+    <div class="categoriesload">Choose your favorite category</div>
 
     <?php $categories = getCategories() ?> 
-    <?php
-        foreach ($categories as $category) {
-        ?>
-            <a href="category.php?category=<?php echo urlencode($category['category']); ?>">
-                <?php echo ucfirst($category['category']) ?>
-            </a>
-        <?php
-        }
-        ?>
-
+    <?php foreach ($categories as $category): ?>
+        <a href="category.php?category=<?php echo urlencode($category['category']); ?>">
+            <?php echo ucfirst($category['category']) ?>
+        </a>
+    <?php endforeach; ?>
 </section>
 
 <main>
@@ -42,57 +41,33 @@ include('header.php');
         <div class="section-title">Latest added products</div>
         <?php $products = getHomePageProducts(8) ?>
        
-            <div class="product">
-                 <?php
-                foreach($products as $product) {
-                    ?> 
-                        <div class="productimg">
-                            <img src="<?php echo "images/products/{$product['image']}" ?>" alt="">
-                            <div class="productinfo">
-                            <p class="artist">
+        <div class="product">
+            <?php foreach($products as $product): ?> 
+                <div class="productimg">
+                    <img src="<?php echo "images/products/{$product['image']}" ?>" alt="">
+                    <div class="productinfo">
+                        <p class="artist">
                             <?php echo $product['artist']; ?>
-                            </p>
-                            <p class="title">
-                                <a href="pages.php?id=<?php echo $product['id'] ?>">
-                                 <?php echo htmlspecialchars($product['title']); ?>
-                                </a>
-                            </p>
-                            <p class="description">
-                                <?php echo $product['description'] ?>
-                            </p>
-                            <p class="price">
-                                <?php echo $product['price'] ?>
-                            </p>
-                        
-                        </div>
-                        </div>
-
-                        
-                     <?php
-                }
-                    ?>
-<!--                 
-                    <div class="productimg">
-                        <img src="images/products/vinyl1.jpg" alt="">
-                    </div>
-                    <div class="prductinfo">
+                        </p>
                         <p class="title">
-                            <a href="">coding is fun</a>
+                            <a href="pages.php?id=<?php echo $product['id'] ?>">
+                                <?php echo htmlspecialchars($product['title']); ?>
+                            </a>
                         </p>
                         <p class="description">
-                            cos tam dobrego do sluchania
+                            <?php echo $product['description'] ?>
                         </p>
-                        <p class="price">29.99 &euro;</p>
-                    </div> -->
+                        <p class="price">
+                            <?php echo $product['price'] ?>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
 
-                 
-            </div>
-            
+        </div>
     </div>   
-
 </main>
 
 <?php
 include('footer.php');
 ?>
-

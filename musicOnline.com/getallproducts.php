@@ -1,4 +1,11 @@
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 session_start();
 include('config.php');
 
@@ -11,7 +18,7 @@ $result = $dbConnect->query($sql);
 
 $products = [];
 while ($row = $result->fetch_assoc()) {
-    // Poprawka ścieżki do obrazka (jeśli potrzeba)
+    // Fix image path if needed
     if (!str_starts_with($row['image'], "images/products/")) {
         $row['image'] = "images/products/" . $row['image'];
     }

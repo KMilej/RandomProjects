@@ -1,4 +1,13 @@
-<?php require "php/function.php" ?>
+
+<?php require "php/function.php" 
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,43 +30,44 @@
 <body>
 <?php
 session_start();
-// Włączanie logowania błędów
+// Enable error logging
 ini_set('log_errors', 1);
-ini_set('display_errors', 1); // Do testów – pokaże błędy na stronie
+ini_set('display_errors', 1); // For testing – display errors on screen
 error_reporting(E_ALL);
 
-// Ustawienie ścieżki logów na serwerze
+// Set server error log path
 ini_set('error_log', __DIR__ . '/error_log.txt');
 
-// Sprawdzenie, czy logi działają – zapis testowego błędu
-error_log("🚀 Test logowania błędów PHP!");
+// Test if logging works – write sample log
+error_log("🚀 PHP error logging test!");
 ?>
 <header>
-        <div class="top-banner"> <img src="images/main/topimage.jpg" alt="Girl in a jacket"></div>
-        <nav class="navigation">
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/main.php">Home</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/tracing.php">Tracking</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/news.php">News</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/contact.php">Contact</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/product.php">Products</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/notification.php">Notification</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/notification.php">Cart</a>
+    <div class="top-banner"> <img src="images/main/topimage.jpg" alt="Girl in a jacket"></div>
+    <nav class="navigation">
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/main.php">Home</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/tracing.php">Tracking</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/news.php">News</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/contact.php">Contact</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/product.php">Products</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/notification.php">Notification</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/notification.php">Cart</a>
 
-            <?php if (isset($_SESSION["user_id"])): ?>
-            <span>Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>!</span>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/logout.php">Logout</a>
-            <?php if ($_SESSION["role"] === "admin"): ?>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Admin Dashboard</a>
-            <?php else: ?>
-                <!-- 👤 Regular user options -->
-                <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Sell Items</a>
-            <?php endif; ?>
-            <?php else: ?>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/login.php">Log In</a>
-            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/register.php">Register</a>
+        <?php if (isset($_SESSION["user_id"])): ?>
+        <span>Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>!</span>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/logout.php">Logout</a>
+        <?php if ($_SESSION["role"] === "admin"): ?>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Admin Dashboard</a>
+        <?php else: ?>
+            <!-- 👤 Regular user options -->
+            <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/userpanel.php">Sell Items</a>
         <?php endif; ?>
-        </nav>
+        <?php else: ?>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/login.php">Log In</a>
+        <a href="http://olly.fifecomptech.net/~s2264629/musicOnline.com/register.php">Register</a>
+        <?php endif; ?>
+    </nav>
 </header>
+
 <section class="allcontent">
 <section class="search-section">
     <div class="logo">
@@ -65,29 +75,27 @@ error_log("🚀 Test logowania błędów PHP!");
     </div>
     
     <div class="search-box">
-            <form id="searchForm">
-                <input type="text" id="live_search" name="query" placeholder="Search bar" required>
-                <select id="category" name="category">
-                    <option value="">All Categories</option>
-                    <option value="rock">Rock</option>
-                    <option value="pop">Pop</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="hiphop">Hip-Hop</option>
-                    <option value="trance">Hip-Hop</option>
-                </select>
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    
+        <form id="searchForm">
+            <input type="text" id="live_search" name="query" placeholder="Search bar" required>
+            <select id="category" name="category">
+                <option value="">All Categories</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="jazz">Jazz</option>
+                <option value="hiphop">Hip-Hop</option>
+                <option value="trance">Hip-Hop</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </div>
 </section>
+
 <div id="searchresult"></div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        // 🚀 Obsługa dynamicznego wyszukiwania
+        // 🚀 Handle live search input or category change
         $("#live_search, #category").on("input change", function() {
             var input = $("#live_search").val();
             var category = $("#category").val();
@@ -110,7 +118,7 @@ error_log("🚀 Test logowania błędów PHP!");
             }
         });
 
-        // 🚀 Obsługa wyszukiwania po kliknięciu "Search"
+        // 🚀 Handle manual form submit
         $("#searchForm").submit(function(event) {
             event.preventDefault();
             var input = $("#live_search").val();

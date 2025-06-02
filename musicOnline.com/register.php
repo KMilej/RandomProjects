@@ -1,4 +1,12 @@
+
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 $pageTitle = 'Register';
 include('header.php'); // Include header (optional)
 ?>
@@ -19,22 +27,21 @@ include('header.php'); // Include header (optional)
     }
     ?>
 
-
     <form action="process_register.php" method="post">
         <label for="username">Username:</label>
-        <input type="username" id="username" name="username" required>
+        <input type="text" id="username" name="username" required>
         <br><br>
 
         <label for="firstname">First Name:</label>
-        <input type="firstname" id="firstname" name="first_name" required>
+        <input type="text" id="firstname" name="first_name" required>
         <br><br>
 
         <label for="lastname">Last Name:</label>
-        <input type="lastname" id="lastname" name="last_name" required>
+        <input type="text" id="lastname" name="last_name" required>
         <br><br>
 
         <label for="address">Address:</label>
-        <input type="address" id="address" name="address" required>
+        <input type="text" id="address" name="address" required>
         <br><br>
        
         <label for="email">Email:</label>

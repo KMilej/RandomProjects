@@ -1,18 +1,26 @@
+
+
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 include('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['input'])) {
     $search = $_POST['input'];
     $category = $_POST['category'] ?? '';
 
-    // Zabezpieczenie przed SQL injection
+    // Protection against SQL injection
     $search = mysqli_real_escape_string($dbConnect, $search);
     $category = mysqli_real_escape_string($dbConnect, $category);
 
-    // Szukaj po tytule LUB artyście
+    // Search by title OR artist
     $sql = "SELECT * FROM products WHERE (title LIKE '%$search%' OR artist LIKE '%$search%')";
 
-    // Jeśli wybrano kategorię, dodaj warunek
+    // If a category was selected, add condition
     if (!empty($category)) {
         $sql .= " AND category = '$category'";
     }

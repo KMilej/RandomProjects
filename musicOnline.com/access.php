@@ -1,4 +1,10 @@
 <?php
+/*
+  HF5735 Web Development: Dynamically Generated Content 
+  Author: Kamil Milej | Date: 30.05.2025 
+  Version: 1.0
+*/
+
 session_start(); // Start session to track user login
 
 require 'config.php'; // Connect to the database
