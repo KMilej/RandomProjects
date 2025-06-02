@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,12 +8,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
+import auth.AuthUser;
+import controller.LoginController;
+import game.Player;
+import game.PlayerManager;
 
 public class LoginPanel extends JPanel {
 
@@ -60,36 +65,41 @@ public class LoginPanel extends JPanel {
 		btnLogin.setBounds(544, 140, 221, 60);
 		add(btnLogin);
 
-//		btnLogin.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				String username = txtUsername.getText();
-//				String password = new String(txtPassword.getPassword());
-//
-//				if (username.isEmpty() || password.isEmpty()) {
-//					JOptionPane.showMessageDialog(LoginPanel.this, "Please enter both username and password.");
-//					return;
-//				}
-//
-//				CoachManager coachManager = new CoachManager();
-//				LoginValidation validator = new LoginValidation(coachManager);
-//				Coach coach = validator.authenticate(username, password);
-//
-//				if (coach != null) {
-//					JOptionPane.showMessageDialog(LoginPanel.this, "Welcome, " + coach.getFirstName() + "!");
-//					SwingUtilities.getWindowAncestor(LoginPanel.this).dispose();
-//					new CoachMenu(coach);
-//				} else {
-//					JOptionPane.showMessageDialog(LoginPanel.this, "Incorrect username or password.");
-//				}
-//			}
-//		});
+		btnLogin.addActionListener(e -> {
+		    String username = txtUsername.getText();
+		    String password = new String(txtPassword.getPassword());
 
-		JLabel titleLabel = new JLabel("Welcome to Dice Game Login Menu");
-		titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
-		titleLabel.setForeground(Color.BLACK);
-		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titleLabel.setBounds(117, 43, 707, 50);
-		add(titleLabel);
+		    if (username.isEmpty() || password.isEmpty()) {
+		        JOptionPane.showMessageDialog(LoginPanel.this, "Please enter both username and password.");
+		        return;
+		    }
+
+		    LoginController controller = new LoginController();
+		    Player matchedPlayer = controller.authenticate(username, password);
+
+		    if (matchedPlayer != null) {
+		        common.Session.login(matchedPlayer);
+		        JOptionPane.showMessageDialog(LoginPanel.this, "Welcome, " + matchedPlayer.getPlayerName() + "!");
+		        SwingUtilities.getWindowAncestor(LoginPanel.this).dispose();
+		        new GameMenuFrame();
+		    } else {
+		        JOptionPane.showMessageDialog(LoginPanel.this, "Username or password is incorrect.");
+		    }
+		});
+
+
+
+		JButton btnLogin_1 = new JButton("Register");
+		btnLogin_1.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(LoginPanel.this);
+		        currentFrame.dispose();           // zamknij obecne okno (LoginFrame)
+		        new RegisterFrame();              // otwórz nowe okno (RegisterFrame)
+		    }
+		});
+		btnLogin_1.setBounds(46, 650, 221, 60);
+		add(btnLogin_1);
+
 	}
 
 	/**
@@ -108,5 +118,4 @@ public class LoginPanel extends JPanel {
 			g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
 		}
 	}
-
 }
