@@ -1,3 +1,11 @@
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: [name of the file]
+ * Description: short desciption what this class do 
+ */
+
+
 package game;
 
 import java.awt.*;

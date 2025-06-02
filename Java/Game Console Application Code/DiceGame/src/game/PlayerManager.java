@@ -7,6 +7,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class PlayerManager {
     private List<Player> players = new ArrayList<>();
@@ -52,6 +53,16 @@ public class PlayerManager {
         }
         // Jeśli gracza nie było wcześniej:
         players.add(updated);
+    }
+    
+    public <T> List<T> filterPlayers(Predicate<Player> condition, java.util.function.Function<Player, T> mapper) {
+        List<T> result = new ArrayList<>();
+        for (Player player : players) {
+            if (condition.test(player)) {
+                result.add(mapper.apply(player));
+            }
+        }
+        return result;
     }
 
 }

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.*;
+import java.util.List;
 import javax.swing.*;
 
 import common.Session;
@@ -27,9 +28,8 @@ public class GameMenuPanel extends JPanel {
 		}
 
 		// ======= TOP: Welcome Label =======
-		String welcomeText = "Welcome, Player: " + player.getPlayerName() +
-				" | Games Played: " + games +
-				" | Score: " + score;
+		String welcomeText = "Welcome, Player: " + player.getPlayerName() + " | Games Played: " + games + " | Score: "
+				+ score;
 
 		JLabel title = new JLabel(welcomeText, SwingConstants.CENTER);
 		title.setFont(new Font("Arial", Font.BOLD, 24));
@@ -43,12 +43,34 @@ public class GameMenuPanel extends JPanel {
 		buttonPanel.setOpaque(false); // transparent background
 
 		// 🔸 Create buttons
-		JButton btnGameOne = createStyledButton("Game One", "recources/gameOne.png");
-		JButton btnGameTwo = createStyledButton("Game Two", "recources/gameTwo.png");
-		JButton btnGameThree = createStyledButton("Game Three", "recources/gameOne.png");
-		JButton btnGameFour = createStyledButton("Game Four", "recources/gameTwo.png");
+		JButton btnGameOne = createStyledButton("Game One", "recources/diceone.png");
+		JButton btnGameTwo = createStyledButton("Game Two", "recources/moreorless.png");
+		JButton btnGameThree = createStyledButton("Game Three", "recources/coming.png");
+		JButton btnShowTopPlayers = createStyledButton("Show Top Players", "recources/topscore.png");
 
-		// 🔹 Add listeners (examples — replace with your real panels)
+		btnShowTopPlayers.setBackground(new Color(255, 193, 7)); // Amber
+		btnShowTopPlayers.setForeground(Color.BLACK);
+		btnShowTopPlayers.setFocusPainted(false);
+		
+		btnShowTopPlayers.addActionListener(e -> {
+			game.PlayerManager manager = new game.PlayerManager();
+			manager.loadFromJson();
+
+			java.util.List<game.Player> topPlayers = manager.getAllPlayers().stream().filter(p -> p.getScore() > 100)
+					.collect(java.util.stream.Collectors.toList());
+
+			if (topPlayers.isEmpty()) {
+				JOptionPane.showMessageDialog(this, "No players with score over 100.");
+			} else {
+				StringBuilder sb = new StringBuilder("Top Players:\n");
+				for (game.Player p : topPlayers) {
+					sb.append("- ").append(p.getAuthUser().getLogin()).append(" | Score: ").append(p.getScore())
+							.append("\n");
+				}
+				JOptionPane.showMessageDialog(this, sb.toString());
+			}
+		});
+		
 		btnGameOne.addActionListener(e -> {
 			JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 			frame.dispose();
@@ -61,11 +83,11 @@ public class GameMenuPanel extends JPanel {
 			new GameTwoFrame(); // You must implement this JFrame
 		});
 
-		// 🔹 Add to panel
+		// 🔹 Dodanie do panelu
 		buttonPanel.add(btnGameOne);
 		buttonPanel.add(btnGameTwo);
 		buttonPanel.add(btnGameThree);
-		buttonPanel.add(btnGameFour);
+		buttonPanel.add(btnShowTopPlayers);
 
 		add(buttonPanel, BorderLayout.CENTER);
 
@@ -107,49 +129,47 @@ public class GameMenuPanel extends JPanel {
 	}
 
 	private JButton createStyledButton(String text, String imagePath) {
-	    JButton button = new JButton(text);
-	    button.setFont(new Font("Arial", Font.PLAIN, 16));
-	    button.setForeground(Color.BLACK);
-	    button.setFocusPainted(false);
-	    button.setContentAreaFilled(false);
-	    button.setBorderPainted(false);
-	    button.setOpaque(false);
-	    button.setHorizontalTextPosition(SwingConstants.CENTER);
-	    button.setVerticalTextPosition(SwingConstants.BOTTOM);
+		JButton button = new JButton(text);
+		button.setFont(new Font("Arial", Font.PLAIN, 16));
+		button.setForeground(Color.BLACK);
+		button.setFocusPainted(false);
+		button.setContentAreaFilled(false);
+		button.setBorderPainted(false);
+		button.setOpaque(false);
+		button.setHorizontalTextPosition(SwingConstants.CENTER);
+		button.setVerticalTextPosition(SwingConstants.BOTTOM);
 
-	    // Ikona
-	    try {
-	        java.net.URL imageURL = getClass().getResource("/" + imagePath);
-	        if (imageURL != null) {
-	            ImageIcon originalIcon = new ImageIcon(imageURL);
-	            Image scaledImage = originalIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-	            button.setIcon(new ImageIcon(scaledImage));
-	        } else {
-	            System.out.println("Image not found: " + imagePath);
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Error loading image: " + imagePath);
-	    }
+		// Ikona
+		try {
+			java.net.URL imageURL = getClass().getResource("/" + imagePath);
+			if (imageURL != null) {
+				ImageIcon originalIcon = new ImageIcon(imageURL);
+				Image scaledImage = originalIcon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+				button.setIcon(new ImageIcon(scaledImage));
+			} else {
+				System.out.println("Image not found: " + imagePath);
+			}
+		} catch (Exception e) {
+			System.out.println("Error loading image: " + imagePath);
+		}
 
-	 // Efekt hover – zielone tło
-	    button.addMouseListener(new java.awt.event.MouseAdapter() {
-	        @Override
-	        public void mouseEntered(java.awt.event.MouseEvent e) {
-	            button.setOpaque(true);
-	            button.setBackground(new Color(76, 175, 80)); // ładna zieleń (material green 500)
-	            button.setForeground(Color.WHITE); // kontrastowy tekst
-	        }
+		// Efekt hover – zielone tło
+		button.addMouseListener(new java.awt.event.MouseAdapter() {
+			@Override
+			public void mouseEntered(java.awt.event.MouseEvent e) {
+				button.setOpaque(true);
+				button.setBackground(new Color(76, 175, 80)); // ładna zieleń (material green 500)
+				button.setForeground(Color.WHITE); // kontrastowy tekst
+			}
 
-	        @Override
-	        public void mouseExited(java.awt.event.MouseEvent e) {
-	            button.setOpaque(false);
-	            button.setForeground(Color.BLACK); // przywróć domyślny tekst
-	        }
-	    });
+			@Override
+			public void mouseExited(java.awt.event.MouseEvent e) {
+				button.setOpaque(false);
+				button.setForeground(Color.BLACK); // przywróć domyślny tekst
+			}
+		});
 
-
-	    return button;
+		return button;
 	}
-
 
 }
