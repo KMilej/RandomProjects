@@ -1,3 +1,10 @@
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: GameTwo.java
+ * Description: Implements the "More or Less" game where the player guesses if their hidden number is higher or lower than the computer's.
+ */
+
 package game;
 
 import java.awt.*;
@@ -15,6 +22,7 @@ public class GameTwo implements IGame {
     private int computerNumber;
     private JButton btnMore, btnLess;
 
+    // Builds and displays the GUI for the "More or Less" game
     @Override
     public void play(JPanel panel) {
         Player player = Session.getCurrentPlayer();
@@ -75,6 +83,7 @@ public class GameTwo implements IGame {
         btnMore.setEnabled(false);
         btnLess.setEnabled(false);
 
+        // Start a new round and generate numbers
         btnPlay.addActionListener(e -> {
             try {
                 int bet = Integer.parseInt(txtBet.getText());
@@ -117,6 +126,7 @@ public class GameTwo implements IGame {
         panel.add(buttons, BorderLayout.SOUTH);
     }
 
+    // Checks player's guess and updates score and player data
     private void checkGuess(String guess, Player player) {
         int bet = Integer.parseInt(txtBet.getText());
         boolean correct = (guess.equals("more") && hiddenPlayerNumber > computerNumber)

@@ -1,3 +1,10 @@
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: RegisterPanel.java
+ * Description: JPanel that displays a registration form and handles new user creation.
+ */
+
 package view;
 
 import java.awt.Color;
@@ -8,11 +15,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-import auth.AuthUser;
 import controller.RegisterController;
 import game.Player;
-import game.PlayerManager;
-import model.User;
 
 public class RegisterPanel extends JPanel {
 
@@ -20,10 +24,12 @@ public class RegisterPanel extends JPanel {
 	private Image backgroundImage;
 	private JButton btnRegister;
 
+	// Builds the registration form and handles registration logic
 	public RegisterPanel() {
 		setLayout(null);
 		setSize(1000, 750);
 
+		// Load background image
 		if (java.beans.Beans.isDesignTime()) {
 			backgroundImage = new ImageIcon("src/recources/dicegame.png").getImage();
 		} else {
@@ -33,6 +39,7 @@ public class RegisterPanel extends JPanel {
 		setBackground(new Color(192, 192, 192));
 		setOpaque(true);
 
+		// Title
 		JLabel titleLabel = new JLabel("Please Register To Play");
 		titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
 		titleLabel.setForeground(Color.BLACK);
@@ -40,6 +47,7 @@ public class RegisterPanel extends JPanel {
 		titleLabel.setBounds(117, 30, 707, 50);
 		add(titleLabel);
 
+		// Form fields
 		JLabel lblUsername = new JLabel("Username:");
 		lblUsername.setBounds(100, 100, 100, 25);
 		add(lblUsername);
@@ -82,10 +90,12 @@ public class RegisterPanel extends JPanel {
 		txtAddress.setBounds(200, 300, 150, 25);
 		add(txtAddress);
 
+		// Register button
 		btnRegister = new JButton("Register");
 		btnRegister.setBounds(200, 360, 150, 40);
 		add(btnRegister);
 
+		// Register logic
 		btnRegister.addActionListener((ActionEvent e) -> {
 			String username = txtUsername.getText();
 			String login = txtLogin.getText();
@@ -114,9 +124,9 @@ public class RegisterPanel extends JPanel {
 			currentFrame.dispose();              
 			new LoginFrame();                    
 		});
-
 	}
 
+	// Draws the background image for the panel
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -125,6 +135,7 @@ public class RegisterPanel extends JPanel {
 		}
 	}
 
+	// Returns the register button (for test or automation support)
 	public JButton getRegisterButton() {
 		return btnRegister;
 	}

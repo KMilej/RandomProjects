@@ -1,3 +1,10 @@
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: RegisterController.java
+ * Description: Handles player registration and ensures username and login are unique.
+ */
+
 package controller;
 
 import auth.AuthUser;
@@ -7,10 +14,7 @@ import model.User;
 
 public class RegisterController {
 
-    /**
-     * Próbuje zarejestrować nowego gracza.
-     * @return null jeśli login lub username zajęte, inaczej nowy Player
-     */
+    // Attempts to register a new player. Returns null if login or username is already taken.
     public Player register(String username, String login, String password,
                            String firstName, String lastName, String address) {
 
@@ -21,7 +25,7 @@ public class RegisterController {
             AuthUser existingAuth = existing.getAuthUser();
             if (existingAuth.getLogin().equalsIgnoreCase(login) ||
                 existingAuth.getuserName().equalsIgnoreCase(username)) {
-                return null; // login lub username zajęty
+                return null; // login or username already taken
             }
         }
 

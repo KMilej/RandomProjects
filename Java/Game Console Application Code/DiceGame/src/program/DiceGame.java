@@ -1,33 +1,19 @@
-package program;
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: DiceGame.java
+ * Description: Entry point of the application that starts the main program using Swing.
+ */
 
-//import auth.AuthUser;
-//import game.Player;
-//import model.User;
+package program;
 
 public class DiceGame {
 
+	// Starts the application using the Program class
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(() -> {
 			new Program().start();
 		});
-		
-//		Player player = new Player(
-//	            new AuthUser(
-//	                "KamilekTheBoss",           // userName
-//	                "kamil123",                 // login
-//	                "superSecret123",           // password
-//	                new User("Kamil", "Milej", "Poland")  // User object
-//	            )
-//	        );
-//
-//	        System.out.println("Nazwa użytkownika: " + player.getAuthUser().getuserName());
-//	        System.out.println("Login: " + player.getAuthUser().getLogin());
-//	        System.out.println("Imię: " + player.getAuthUser().getUser().getFirstName());
-//	        System.out.println("Adres: " + player.getAuthUser().getUser().getAddress());
-//	        System.out.println("Wynik: " + player.getScore());
-		
-	}
 
-	
-	
+	}
 }

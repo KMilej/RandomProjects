@@ -1,10 +1,9 @@
 /*
  * HL9X35 - Advanced OOP – Fife College
  * Author: Kamil Milej | Date: 02.02.2025
- * File: [name of the file]
- * Description: short desciption what this class do 
+ * File: GameOne.java
+ * Description: Implements the first dice game where the player rolls against the computer.
  */
-
 
 package game;
 
@@ -20,6 +19,7 @@ public class GameOne implements IGame {
     private JTextField txtBet;
     private JButton btnRoll;
 
+    // Builds and displays the GUI for the dice game
     @Override
     public void play(JPanel panel) {
         Player player = Session.getCurrentPlayer();
@@ -91,14 +91,15 @@ public class GameOne implements IGame {
         btnBack.setFocusPainted(false);
         btnBack.setPreferredSize(new Dimension(160, 40));
         btnBack.addActionListener(e -> {
-            SwingUtilities.getWindowAncestor(panel).dispose();  // zamknij to okno
-            new view.GameMenuFrame();                           // otwórz menu
+            SwingUtilities.getWindowAncestor(panel).dispose();  // Close this window
+            new view.GameMenuFrame();                           // Open game menu
         });
 
-        bottom.add(Box.createHorizontalStrut(20)); // odstęp
-        bottom.add(btnBack); // dodaj do tego samego bottom panelu
+        bottom.add(Box.createHorizontalStrut(20)); // Spacer
+        bottom.add(btnBack); // Add to same bottom panel
     }
 
+    // Plays a round of the game and updates score and UI
     private void playRound(Player player) {
         int bet;
         try {
@@ -134,7 +135,7 @@ public class GameOne implements IGame {
                 " | Games Played: " + player.getGameplayed() +
                 " | Score: " + player.getScore());
 
-        // Update JSON
+        // Save updated player data to JSON
         PlayerManager manager = new PlayerManager();
         manager.loadFromJson();
         manager.updatePlayer(player);

@@ -1,3 +1,10 @@
+/*
+ * HL9X35 - Advanced OOP – Fife College
+ * Author: Kamil Milej | Date: 02.02.2025
+ * File: GameMenuPanel.java
+ * Description: Displays the main game menu with player stats, game buttons, and logout/exit options.
+ */
+
 package view;
 
 import java.awt.*;
@@ -12,6 +19,7 @@ public class GameMenuPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Image backgroundImage;
 
+	// Builds the main game menu interface
 	public GameMenuPanel() {
 		Player player = Session.getCurrentPlayer();
 		int score = player.getScore();
@@ -42,7 +50,7 @@ public class GameMenuPanel extends JPanel {
 		buttonPanel.setBorder(BorderFactory.createEmptyBorder(40, 100, 40, 100));
 		buttonPanel.setOpaque(false); // transparent background
 
-		// 🔸 Create buttons
+		// Create game buttons
 		JButton btnGameOne = createStyledButton("Game One", "recources/diceone.png");
 		JButton btnGameTwo = createStyledButton("Game Two", "recources/moreorless.png");
 		JButton btnGameThree = createStyledButton("Game Three", "recources/coming.png");
@@ -51,12 +59,14 @@ public class GameMenuPanel extends JPanel {
 		btnShowTopPlayers.setBackground(new Color(255, 193, 7)); // Amber
 		btnShowTopPlayers.setForeground(Color.BLACK);
 		btnShowTopPlayers.setFocusPainted(false);
-		
+
+		// Show top players with score > 100
 		btnShowTopPlayers.addActionListener(e -> {
 			game.PlayerManager manager = new game.PlayerManager();
 			manager.loadFromJson();
 
-			java.util.List<game.Player> topPlayers = manager.getAllPlayers().stream().filter(p -> p.getScore() > 100)
+			List<game.Player> topPlayers = manager.getAllPlayers().stream()
+					.filter(p -> p.getScore() > 100)
 					.collect(java.util.stream.Collectors.toList());
 
 			if (topPlayers.isEmpty()) {
@@ -70,20 +80,22 @@ public class GameMenuPanel extends JPanel {
 				JOptionPane.showMessageDialog(this, sb.toString());
 			}
 		});
-		
+
+		// Open Game One
 		btnGameOne.addActionListener(e -> {
 			JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 			frame.dispose();
 			new GameOneFrame(); // You must implement this JFrame
 		});
 
+		// Open Game Two
 		btnGameTwo.addActionListener(e -> {
 			JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
 			frame.dispose();
 			new GameTwoFrame(); // You must implement this JFrame
 		});
 
-		// 🔹 Dodanie do panelu
+		// Add buttons to the panel
 		buttonPanel.add(btnGameOne);
 		buttonPanel.add(btnGameTwo);
 		buttonPanel.add(btnGameThree);
@@ -96,6 +108,7 @@ public class GameMenuPanel extends JPanel {
 		footerPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
 		footerPanel.setOpaque(false);
 
+		// Logout button
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 16));
 		btnLogout.setBackground(new Color(70, 130, 180));
@@ -107,6 +120,7 @@ public class GameMenuPanel extends JPanel {
 			SwingUtilities.getWindowAncestor(this).dispose();
 		});
 
+		// Exit button
 		JButton btnExit = new JButton("Exit");
 		btnExit.setFont(new Font("Arial", Font.BOLD, 16));
 		btnExit.setBackground(Color.RED.darker());
@@ -120,6 +134,7 @@ public class GameMenuPanel extends JPanel {
 		add(footerPanel, BorderLayout.SOUTH);
 	}
 
+	// Draws the background image on the panel
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -128,6 +143,7 @@ public class GameMenuPanel extends JPanel {
 		}
 	}
 
+	// Creates a styled JButton with text and an optional image
 	private JButton createStyledButton(String text, String imagePath) {
 		JButton button = new JButton(text);
 		button.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -139,7 +155,7 @@ public class GameMenuPanel extends JPanel {
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setVerticalTextPosition(SwingConstants.BOTTOM);
 
-		// Ikona
+		// Load icon
 		try {
 			java.net.URL imageURL = getClass().getResource("/" + imagePath);
 			if (imageURL != null) {
@@ -153,23 +169,22 @@ public class GameMenuPanel extends JPanel {
 			System.out.println("Error loading image: " + imagePath);
 		}
 
-		// Efekt hover – zielone tło
+		// Hover effect – green background and white text
 		button.addMouseListener(new java.awt.event.MouseAdapter() {
 			@Override
 			public void mouseEntered(java.awt.event.MouseEvent e) {
 				button.setOpaque(true);
-				button.setBackground(new Color(76, 175, 80)); // ładna zieleń (material green 500)
-				button.setForeground(Color.WHITE); // kontrastowy tekst
+				button.setBackground(new Color(76, 175, 80)); // material green 500
+				button.setForeground(Color.WHITE);
 			}
 
 			@Override
 			public void mouseExited(java.awt.event.MouseEvent e) {
 				button.setOpaque(false);
-				button.setForeground(Color.BLACK); // przywróć domyślny tekst
+				button.setForeground(Color.BLACK);
 			}
 		});
 
 		return button;
 	}
-
 }
