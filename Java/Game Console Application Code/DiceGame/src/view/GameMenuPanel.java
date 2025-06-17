@@ -65,9 +65,7 @@ public class GameMenuPanel extends JPanel {
 			game.PlayerManager manager = new game.PlayerManager();
 			manager.loadFromJson();
 
-			List<game.Player> topPlayers = manager.getAllPlayers().stream()
-					.filter(p -> p.getScore() > 100)
-					.collect(java.util.stream.Collectors.toList());
+			List<game.Player> topPlayers = manager.filterPlayers(p -> p.getScore() > 100, p -> p);
 
 			if (topPlayers.isEmpty()) {
 				JOptionPane.showMessageDialog(this, "No players with score over 100.");

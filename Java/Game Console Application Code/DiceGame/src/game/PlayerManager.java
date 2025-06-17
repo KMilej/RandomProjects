@@ -9,7 +9,7 @@ package game;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
+import common.InvalidPlayerException;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -76,5 +76,17 @@ public class PlayerManager {
             }
         }
         return result;
+    }
+    
+    public void validatePlayer(Player player) throws InvalidPlayerException {
+        if (player.getAuthUser() == null || player.getAuthUser().getLogin().isEmpty()) {
+            throw new InvalidPlayerException("Login cannot be empty.");
+        }
+        if (player.getPlayerName() == null || player.getPlayerName().trim().isEmpty()) {
+            throw new InvalidPlayerException("Player name cannot be empty.");
+        }
+        if (player.getScore() < 0) {
+            throw new InvalidPlayerException("Score cannot be negative.");
+        }
     }
 }

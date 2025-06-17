@@ -104,8 +104,8 @@ public class RegisterPanel extends JPanel {
 			String lastName = txtLastName.getText();
 			String address = txtAddress.getText();
 
-			if (username.isEmpty() || login.isEmpty() || password.isEmpty()
-					|| firstName.isEmpty() || lastName.isEmpty() || address.isEmpty()) {
+			if (username.isEmpty() || login.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty()
+					|| address.isEmpty()) {
 				JOptionPane.showMessageDialog(this, "Please fill in all fields.");
 				return;
 			}
@@ -118,11 +118,26 @@ public class RegisterPanel extends JPanel {
 				return;
 			}
 
-			JOptionPane.showMessageDialog(this, "Player registered successfully!");
+			game.PlayerManager manager = new game.PlayerManager();
+			try {
+				manager.validatePlayer(newPlayer);
+				manager.addPlayer(newPlayer);
+				manager.saveToJson();
 
-			JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-			currentFrame.dispose();              
-			new LoginFrame();                    
+				JOptionPane.showMessageDialog(this, "Player registered successfully!");
+
+				JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+				currentFrame.dispose();
+				new LoginFrame();
+			} catch (common.InvalidPlayerException ex) {
+				JOptionPane.showMessageDialog(this, "Registration failed: " + ex.getMessage());
+			}
+
+//			JOptionPane.showMessageDialog(this, "Player registered successfully!");
+//
+//			JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+//			currentFrame.dispose();              
+//			new LoginFrame();                    
 		});
 	}
 
