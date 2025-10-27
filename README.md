@@ -155,7 +155,7 @@ This script will:
 
 <details>
 <summary style="font-size:1.6em; line-height:1.6; display:flex; align-items:center;">
-  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%23f2f2f2' stroke='%23ccc' stroke-width='1'/><text x='50%25' y='50%25' font-family='Arial, Helvetica, sans-serif' font-size='16' font-weight='700' fill='%23333' text-anchor='middle' dominant-baseline='central'>IDE</text></svg>" width="40" style="vertical-align:middle; margin-right:10px;" alt="IDE logo">
+   <img src="https://img.shields.io/badge/IDE-gray?style=for-the-badge&logoColor=white" width="40" style="vertical-align:middle; margin-right:10px;" />
   <strong>Run in IDE (Automatic)</strong>
 </summary>
 
@@ -206,7 +206,7 @@ This script will:
 
 <details>
 <summary style="font-size:1.6em; line-height:1.6; display:flex; align-items:center;">
- <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%23f2f2f2' stroke='%23ccc' stroke-width='1'/><text x='50%25' y='50%25' font-family='Arial, Helvetica, sans-serif' font-size='16' font-weight='700' fill='%23333' text-anchor='middle' dominant-baseline='central'>IDE</text></svg>" width="40" style="vertical-align:middle; margin-right:10px;" alt="IDE logo">
+  <img src="https://img.shields.io/badge/IDE-gray?style=for-the-badge&logoColor=white" width="40" style="vertical-align:middle; margin-right:10px;" />
  <strong>Run in IDE (Manual Setup)</strong>
 </summary>
 
